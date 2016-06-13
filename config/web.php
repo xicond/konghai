@@ -10,7 +10,7 @@ $config = [
     'modules' => [
         'user' => [
             'class' => 'dektrium\user\Module',
-            'admins' => ['xicond'],
+            'admins' => ['xicond', 'admin'],
             'enableUnconfirmedLogin' => true,
         ],
         'rbac' => [
