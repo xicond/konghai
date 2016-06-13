@@ -12,6 +12,9 @@ $config = [
             'class' => 'dektrium\user\Module',
             'admins' => ['xicond', 'admin'],
             'enableUnconfirmedLogin' => true,
+            'enableRegistration' => false,
+            'enableConfirmation' => false,
+            'enablePasswordRecovery' => false
         ],
         'rbac' => [
             'class' => 'dektrium\rbac\Module',
