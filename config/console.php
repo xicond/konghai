@@ -15,10 +15,12 @@ $config = [
             'class' => 'yii\caching\FileCache',
         ],
         'log' => [
+            'flushInterval' => 1, // <-- here
             'targets' => [
                 [
                     'class' => 'yii\log\FileTarget',
                     'levels' => ['error', 'warning'],
+                    'exportInterval' => 1, // <-- and here
                 ],
             ],
         ],

@@ -67,6 +67,13 @@ $config = [
             ],
         ],
 
+        'assetManager' => [
+            'appendTimestamp' => true,
+            'hashCallback' => function ($path) {
+                return hash('md4', $path);
+            }
+        ],
+
         'authManager' => [
             'class' => 'yii\rbac\DbManager',
         ],

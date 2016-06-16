@@ -7,9 +7,12 @@ use Yii;
 use app\models\Shipment;
 use app\models\ShipmentCode;
 use app\models\ShipmentSearch;
+use yii\base\Exception;
 use yii\data\ActiveDataProvider;
+use yii\db\Transaction;
 use yii\filters\AccessControl;
 use yii\helpers\ArrayHelper;
+use yii\web\BadRequestHttpException;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -102,19 +105,29 @@ class ShipmentController extends Controller
             return ArrayHelper::merge( ActiveForm::validate($model_code), ActiveForm::validate($model));
         }
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+        $transaction = Yii::$app->db->beginTransaction(
+            Transaction::SERIALIZABLE
+        );
+        try {
+            if ($model->load(Yii::$app->request->post()) && $model->save()) {
 
-            if ($model_code->load(Yii::$app->request->post()) && ($model_code->shipment_id = $model->id) && $model_code->save()) {
+                if ($model_code->load(Yii::$app->request->post()) && ($model_code->shipment_id = $model->id) && $model_code->save()) {
 
-                return $this->redirect(['view', 'id' => $model->id]);
+                    $transaction->commit();
+                    return $this->redirect(['view', 'id' => $model->id]);
 
-            }
+                }
+                $transaction->rollBack();
 
-        } else {
-            return $this->render('create', [
-                'model' => $model,
-                'model_code' => $model_code,
-            ]);
+            } //else {
+                return $this->render('create', [
+                    'model' => $model,
+                    'model_code' => $model_code,
+                ]);
+            //}
+        } catch (Exception $e) {
+            $transaction->rollBack();
+            throw new BadRequestHttpException($e->getMessage(), 0, $e);
         }
     }
 
