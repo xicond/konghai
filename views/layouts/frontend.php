@@ -45,20 +45,20 @@ AppAsset::register($this);
         <div class="rd-navbar-wrap header-corporate">
             <nav class="rd-navbar" data-layout="rd-navbar-fixed" data-sm-layout="rd-navbar-fullwidth" data-md-layout="rd-navbar-fullwidth" data-lg-layout="rd-navbar-static">
                 <!--(data-layout='rd-navbar-fixed',data-sm-layout='rd-navbar-fullwidth', data-lg-layout='#{rd_navbar_data_ajuster}' )-->
-                <div class="rd-navbar-top-panel bg-dark">
+                <div class="rd-navbar-top-panel">
                     <div class="rd-navbar-inner">
                         <button data-rd-navbar-toggle=".list-inline" type="submit" class="rd-navbar-collapse-toggle"><span></span></button>
-                        <a href="mailto:#" class="fa-envelope-o">info@konghai.com</a>
-                        <a href="callto:#" class="fa-mobile-phone preffix-2">1-800-1234-567</a>
-                        <ul class="list-inline pull-right">
+                        <a href="mailto:#" class="fa-envelope-o text-slim">info@konghai.com</a>
+                        <a href="callto:#" class="fa-mobile-phone preffix-2 text-slim">1-800-1234-567</a>
+                        <ul class="list-inline pull-right social">
                             <li><a href="#" class="fa-facebook"></a></li>
                             <li><a href="#" class="fa-twitter"></a></li>
                             <li><a href="#" class="fa-pinterest-p"></a></li>
                             <li><a href="#" class="fa-vimeo"></a></li>
                             <li><a href="#" class="fa-google-plus"></a></li>
                             <li><a href="#" class="fa-rss"></a></li>
-                            <li class="text-left"><a href="mailto:#" class="fa-envelope-o">info@konghai.com</a></li>
-                            <li class="text-left"><a href="callto:#" class="fa-mobile-phone">1-800-1234-567</a></li>
+                            <li class="text-left"><a href="mailto:#" class="fa-envelope-o text-slim">info@konghai.com</a></li>
+                            <li class="text-left"><a href="callto:#" class="fa-mobile-phone text-slim">1-800-1234-567</a></li>
                         </ul>
                     </div>
                 </div>
@@ -68,7 +68,10 @@ AppAsset::register($this);
                         <!-- RD Navbar Toggle-->
                         <button data-rd-navbar-toggle=".rd-navbar-nav-wrap" type="submit" class="rd-navbar-toggle"><span></span></button>
                         <!-- RD Navbar Brand-->
-                        <div class="rd-navbar-brand"><a href="<?= Yii::$app->homeUrl?>" class="brand-name"><span class="icon fa-truck"></span><span>Cargo</span></a></div>
+                        <div class="rd-navbar-brand">
+                            <a href="<?= Yii::$app->homeUrl?>" class="brand-name">
+                                <img src="/images/konghai-logo.png" alt="konghai logo">
+                            </a></div>
                     </div>
                     <div class="rd-navbar-nav-wrap">
                         <!-- RD Navbar Search-->
@@ -129,7 +132,7 @@ AppAsset::register($this);
         <?= $content ?>
 
     </main>
-    <footer class="page-foot section-inset-4 bg-dark">
+    <footer class="page-foot section-inset-4">
         <section class="footer-content">
             <div class="container">
                 <!--footer-->

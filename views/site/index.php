@@ -206,7 +206,7 @@ $this->title = 'Konghai';
             <div class="col-xs-12 col-sm-6 col-md-4">
                 <div class="thumbnail thumbnail-mod-1"><img src="images/partner-8.png" alt="">
                     <div class="caption-mod-1">
-                        <h6 class="text-primary">Tourner</h6><a href="#" class="text-gray">www.tourner.com</a>
+                        <h6 class="text-gray">Tourner</h6><a href="#" class="text-gray">www.tourner.com</a>
                         <p>We believe in the ability of all people to thrive, not just exist.</p>
                     </div>
                 </div>
@@ -214,7 +214,7 @@ $this->title = 'Konghai';
             <div class="col-xs-12 col-sm-6 col-md-4">
                 <div class="thumbnail thumbnail-mod-1"><img src="images/partner-9.png" alt="">
                     <div class="caption-mod-1">
-                        <h6 class="text-primary">Frank`s Co.</h6><a href="#" class="text-gray">www.franksco.com</a>
+                        <h6 class="text-gray">Frank`s Co.</h6><a href="#" class="text-gray">www.franksco.com</a>
                         <p>We are open and transparent about the work we do and how we do it.</p>
                     </div>
                 </div>
@@ -222,7 +222,7 @@ $this->title = 'Konghai';
             <div class="col-xs-12 col-sm-12 col-md-4">
                 <div class="thumbnail thumbnail-mod-1"><img src="images/partner-10.png" alt="">
                     <div class="caption-mod-1">
-                        <h6 class="text-primary">Retro Press</h6><a href="#" class="text-gray">www.retropress.com</a>
+                        <h6 class="text-gray">Retro Press</h6><a href="#" class="text-gray">www.retropress.com</a>
                         <p>We are commited to achieving demonstrable impact for our stakeholders.</p>
                     </div>
                 </div>
