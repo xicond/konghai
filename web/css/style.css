@@ -556,7 +556,7 @@ h1, .h1 {
 
 h2, .h2 {
   font-size: 46px;
-  color: #5d5d5d;
+  color: #606E70;
 }
 
 h3, .h3 {
@@ -12843,7 +12843,7 @@ html.lt-ie-10 .range > [class*="cell-lg-preffix-"] {
 }
 
 .thumbnail-1 .blog-post-title a {
-  color: #293b86;
+  color: #2A6C78;
 }
 
 .thumbnail-2 {
@@ -21691,7 +21691,7 @@ img.mfp-img {
 }
 
 .rd-navbar-static .rd-navbar-nav > li.active > a, .rd-navbar-static .rd-navbar-nav > li.opened > a, .rd-navbar-static .rd-navbar-nav > li.focus > a, .rd-navbar-static .rd-navbar-nav > li > a:hover, .rd-navbar-fullwidth .rd-navbar-nav > li.active > a, .rd-navbar-fullwidth .rd-navbar-nav > li.opened > a, .rd-navbar-fullwidth .rd-navbar-nav > li.focus > a, .rd-navbar-fullwidth .rd-navbar-nav > li > a:hover {
-  color: #4dc4da;
+  color: #2A6C78;
 }
 
 .rd-navbar-static .rd-navbar--has-dropdown, .rd-navbar-fullwidth .rd-navbar--has-dropdown {
