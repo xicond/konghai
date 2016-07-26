@@ -24,6 +24,14 @@ $config = [
                 ],
             ],
         ],
+        'formatter' =>
+        [
+            'class' => 'yii\i18n\Formatter',
+            'dateFormat' => 'php:d-m-Y',
+            'datetimeFormat' => 'php:d-m-Y H:i a',
+            'timeFormat' => 'php:H:i A',
+            /*'defaultTimeZone' OR */'timeZone' => 'Asia/Jakarta', //global date formats for display for your locale.
+        ],
         'db' => $db,
 
         'authManager' => [

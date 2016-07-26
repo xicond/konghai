@@ -101,9 +101,9 @@ AppAsset::register($this);
             <div class="swiper-container swiper-slider swiper-slider-height-1">
                 <div class="jumbotron-mod-1 text-center">
                     <div>
-                        <h1><small>fast and trusted</small><span class='text-bold'>transportation</span></h1>
+                        <h1><small>We Serve Better Than Other</small><span class='text-bold'>Konghai</span></h1>
                         <div class="slogan">
-                            <p>Freight, warehousing, accounting, packaging and distribution are just a few examples of what we can do to ensure your success.</p>
+                            <p>Ekspedisi barang import door to door terbesar ke 5 di Indonesia berdiri sejak 2006</p>
                         </div>
 <!--                        <div class='btn-group-variant'> <div><a class='btn btn-primary btn-sm' href='#'>Our advantages</a> <a class='btn btn-white btn-sm' href='#'>Virtual tour</a></div></div>-->
                     </div>

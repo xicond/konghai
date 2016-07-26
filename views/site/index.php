@@ -81,21 +81,21 @@ $this->title = 'Konghai';
         <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-6 text-center text-md-left inset-1"><img src="images/index-1.jpg" alt=""></div>
             <div class="col-xs-12 col-sm-12 col-md-6 text-sm-left well1">
-                <p>Our transportation company is your best choice for shipping cargo of any size, storage, packing or delivering wares to your customers.</p>
-                <p>Our professional employees will take care of your goods, whenever you send them.</p>
-                <div class="progress-container text-left">
+                <p>Perusahaan Kami Dipilih Untuk Melayani Anda! Kami Melayani dengan Hati. Perusahaan kami memiliki pengalaman di bidang ekspedisi IMPORT Lebih dari 8 tahun dan nomor urut ke-5 di Jakarta. Juga kami merupakan salah satu dari 25 Jasa Ekspedisi Import Terbesar di Indonesia. (Trading, Pengiriman Barang LCL & FCL Door To Door Rumah Customer).</p>
+                <br/>
+                <p>"We Serve Better Than Other"</p>
+                <br/>
+                <p>Kepuasan dan Kenyamanan anda adalah tujuan kami</p>
+                <p>Pengalaman kami :</p>
+                <p>Banyak perusahaan Besar Seperti Telkomsel, Flexi, Hua Wei, Nutrisi Depot Indonesia, Mesin" Balancing, Plastik PO, Spare Part, Electronic, Online Shop, Dll.</p>
+<!--                <div class="progress-container text-left">-->
 <!--                    <p class="font-secondary h6">Air Transportation</p>-->
                     <!-- Progress Bar-->
-                    <div data-value="50" data-stroke="10" data-easing="linear" data-duration="1000" data-counter="true" class="progress-bar progress-bar-horizontal progress-bar-default"></div>
-                    <p class="font-secondary h6">Marine Transportation</p>
-                    <div data-value="90" data-stroke="10" data-easing="linear" data-duration="1000" data-counter="true" class="progress-bar progress-bar-horizontal progress-bar-default"></div>
-                    <p class="font-secondary h6">Trucking Services</p>
-                    <div data-value="80" data-stroke="10" data-easing="linear" data-duration="1000" data-counter="true" class="progress-bar progress-bar-horizontal progress-bar-default"></div>
-                    <p class="font-secondary h6">Safety Escort Services</p>
-                    <div data-value="20" data-stroke="10" data-easing="linear" data-duration="1000" data-counter="true" class="progress-bar progress-bar-horizontal progress-bar-default"></div>
-                </div>
+                    <!--<div data-value="50" data-stroke="10" data-easing="linear" data-duration="1000" data-counter="true" class="progress-bar progress-bar-horizontal progress-bar-default"></div>
+                    <p class="font-secondary h6">Marine Transportation</p>-->
+<!--                </div>-->
             </div>
-        </div><a href="#" class="btn btn-white btn-sm btn-min-width">learn more</a>
+        </div><a href="#" class="btn btn-white btn-sm btn-min-width">lebih lanjut</a>
     </div>
 </section>
 <!--<section class="section section-inset-2">
@@ -143,20 +143,20 @@ $this->title = 'Konghai';
 </section>
 --><section class="section section-inset-1 bg-light">
     <div class="container">
-        <h2>Latest news</h2>
+        <h2>Blog news</h2>
         <hr>
         <div class="row text-sm-left">
             <div class="col-xs-12 col-sm-6 col-md-4">
                 <div class="blog-post thumbnail-1 thumbnail-mod-2"><img src="images/index-8.jpg" alt="">
                     <div class="caption">
                         <div class="blog-post-title">
-                            <h4 class="text-primary text-transform-none"><a href="#blog_post.html">We support about 15 domestic relay shipments</a></h4>
+                            <h4 class="text-primary text-transform-none"><a href="#blog_post.html">International Packing Import</a></h4>
                         </div>
                         <div class="blog-post-time">
-                            <time datetime="2015-12-26">December 26, 2015</time>
+                            <time datetime="2015-12-26">April 10, 2014</time>
                         </div>
                         <div class="blog-post-body">
-                            <p>You can send do shipments from offshore. We provide pickup warehouse and domestic relay</p>
+                            <p>Bahan- bahan yang digunakan dalam packing export – IMPORT menggunakan bahan – bahan berkualitas INTERNATIONAL dengan standard operasional prosedur yang dijaga ketat.</p>
 <!--                            <a href="blog_post.html" class="badge fa-comment font-secondary text-primary">10</a>-->
                         </div>
                     </div>
@@ -166,13 +166,13 @@ $this->title = 'Konghai';
                 <div class="blog-post thumbnail-1 thumbnail-mod-2"><img src="images/index-9.jpg" alt="">
                     <div class="caption">
                         <div class="blog-post-title">
-                            <h4 class="text-primary text-transform-none"><a href="#blog_post.html">Top-grade security on all levels</a></h4>
+                            <h4 class="text-primary text-transform-none"><a href="#blog_post.html">PILIHAN TEPAT IMPORT VIA UDARA</a></h4>
                         </div>
                         <div class="blog-post-time">
-                            <time datetime="2015-12-26">December 26, 2015</time>
+                            <time datetime="2015-12-26">April 8, 2014</time>
                         </div>
                         <div class="blog-post-body">
-                            <p>We are aware of the fact that unforeseen incidents make occur in transit of shipments, so we provide full insurance for your shipments.</p>
+                            <p>Udara kargo pengiriman adalah pilihan yang cocok untuk bisnis yang perlu untuk mendapatkan dokumen yang dikirim dengan cepat atau yang ingin memastikan bahwa pelanggan mendapatkan produk mereka memesan segera. Udara kargo pengiriman ini juga pilihan yang luar biasa untuk individu yang memiliki sesuatu yang mereka butuhkan untuk mail dan yang berfokus terutama pada mendapatkan bahwa paket atau item dikirim cepat.</p>
 <!--                            <a href="blog_post.html" class="badge fa-comment font-secondary text-primary">16</a>-->
                         </div>
                     </div>
@@ -182,13 +182,13 @@ $this->title = 'Konghai';
                 <div class="blog-post thumbnail-1 thumbnail-mod-2"><img src="images/index-10.jpg" alt="">
                     <div class="caption">
                         <div class="blog-post-title">
-                            <h4 class="text-primary text-transform-none"><a href="#blog_post.html">Less Than a Container Loads</a></h4>
+                            <h4 class="text-primary text-transform-none"><a href="#blog_post.html">Tips Cara Kirim Barang Import</a></h4>
                         </div>
                         <div class="blog-post-time">
-                            <time datetime="2015-12-26">December 26, 2015</time>
+                            <time datetime="2015-12-26">April 6, 2014</time>
                         </div>
                         <div class="blog-post-body">
-                            <p>You can receive an addition discount using our Less than a Container Load (LCL) options. This type of freight is similar to the consolidated cargo.</p>
+                            <p>Sekarang ini barang import dari China sedang membanjiri pasar ekonomi Indonesia , bahkan hampir di seluruh dunia juga yang dikarenakan harga nya yang sangat murah dibanding dengan produk lainnya. Ini bisa menjadi peluang bisnis yang sangat bagus dan menjanjikan.</p>
 <!--                            <a href="blog_post.html" class="badge fa-comment font-secondary text-primary">20</a>-->
                         </div>
                     </div>
@@ -206,7 +206,7 @@ $this->title = 'Konghai';
             <div class="col-xs-12 col-sm-6 col-md-4">
                 <div class="thumbnail thumbnail-mod-1"><img src="images/partner-8.png" alt="">
                     <div class="caption-mod-1">
-                        <h6 class="text-gray">Tourner</h6><a href="#" class="text-gray">www.tourner.com</a>
+                        <h6 class="text-gray">Tourner</h6><!--<a href="#" class="text-gray">www.tourner.com</a>-->
                         <p>We believe in the ability of all people to thrive, not just exist.</p>
                     </div>
                 </div>
@@ -214,7 +214,7 @@ $this->title = 'Konghai';
             <div class="col-xs-12 col-sm-6 col-md-4">
                 <div class="thumbnail thumbnail-mod-1"><img src="images/partner-9.png" alt="">
                     <div class="caption-mod-1">
-                        <h6 class="text-gray">Frank`s Co.</h6><a href="#" class="text-gray">www.franksco.com</a>
+                        <h6 class="text-gray">Frank`s Co.</h6><!--<a href="#" class="text-gray">www.franksco.com</a>-->
                         <p>We are open and transparent about the work we do and how we do it.</p>
                     </div>
                 </div>
@@ -222,7 +222,7 @@ $this->title = 'Konghai';
             <div class="col-xs-12 col-sm-12 col-md-4">
                 <div class="thumbnail thumbnail-mod-1"><img src="images/partner-10.png" alt="">
                     <div class="caption-mod-1">
-                        <h6 class="text-gray">Retro Press</h6><a href="#" class="text-gray">www.retropress.com</a>
+                        <h6 class="text-gray">Retro Press</h6><!--<a href="#" class="text-gray">www.retropress.com</a>-->
                         <p>We are commited to achieving demonstrable impact for our stakeholders.</p>
                     </div>
                 </div>
@@ -262,13 +262,13 @@ $this->title = 'Konghai';
         </div>
     </div>
 </section>
-<section class="section section-inset-1">
+<!--<section class="section section-inset-1">
     <div class="container">
         <h2>testimonials</h2>
         <hr>
         <div class="row">
             <div class="col-xs-12">
-                <!-- Owl Carousel-->
+                <!-- Owl Carousel-/->
                 <div data-items="1" data-sm-items="2" data-lg-items="3" data-loop="false" data-margin="30" data-dots="true" data-autoplay="true" class="owl-carousel owl-carousel-mod-2">
                     <div class="owl-item">
                         <blockquote class="quote"><img src="images/index-12.jpg" alt="" width="70" height="70" class="img-circle"/>
@@ -364,4 +364,4 @@ $this->title = 'Konghai';
             </div>
         </div>
     </div>
-</section>
+</section>-->
