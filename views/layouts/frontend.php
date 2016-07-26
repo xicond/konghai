@@ -40,9 +40,9 @@ AppAsset::register($this);
 
 <div class="page text-center">
     <!-- Page Header-->
-    <header class="page-head">
+    <header class="page-head bg-<?=Yii::$app->controller->action->id?>1">
         <!-- RD Navbar-->
-        <div class="rd-navbar-wrap header-corporate">
+        <div class="rd-navbar-wrap <?= in_array(Yii::$app->controller->action->id,['about'])?'':'header-corporate'?>">
             <nav class="rd-navbar" data-layout="rd-navbar-fixed" data-sm-layout="rd-navbar-fullwidth" data-md-layout="rd-navbar-fullwidth" data-lg-layout="rd-navbar-static">
                 <!--(data-layout='rd-navbar-fixed',data-sm-layout='rd-navbar-fullwidth', data-lg-layout='#{rd_navbar_data_ajuster}' )-->
                 <div class="rd-navbar-top-panel">
@@ -88,7 +88,7 @@ AppAsset::register($this);
                         <ul class="rd-navbar-nav">
                             <li<?= \yii\helpers\Url::current()==\yii\helpers\Url::to(['site/index'])?' class="active"':''?>><a href="<?= Yii::$app->homeUrl?>">Home</a></li>
                             <li<?= \yii\helpers\Url::current()==\yii\helpers\Url::to(['site/track'])?' class="active"':''?>><a href="<?= \yii\helpers\Url::to(['site/track'])?>">Tracking</a></li>
-                            <li><a href="#about.html">About Us</a></li>
+                            <li<?= \yii\helpers\Url::current()==\yii\helpers\Url::to(['site/about'])?' class="active"':''?>><a href="<?= \yii\helpers\Url::to(['site/about'])?>">About Us</a></li>
                             <li><a href="#contact.html">Contact Us</a></li>
                         </ul>
                     </div>

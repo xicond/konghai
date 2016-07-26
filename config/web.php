@@ -68,7 +68,7 @@ $config = [
                 'POST track.html' => 'site/track',
                 [
                     'verb' => 'GET',
-                    'pattern' => '<action:(index|track)>',
+                    'pattern' => '<action:(index|track|about)>',
                     'route' => 'site/<action>',
                     'suffix' => '.html',
                 ],
