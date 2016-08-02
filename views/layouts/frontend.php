@@ -89,7 +89,7 @@ AppAsset::register($this);
                             <li<?= \yii\helpers\Url::current()==\yii\helpers\Url::to(['site/index'])?' class="active"':''?>><a href="<?= Yii::$app->homeUrl?>">Home</a></li>
                             <li<?= \yii\helpers\Url::current()==\yii\helpers\Url::to(['site/track'])?' class="active"':''?>><a href="<?= \yii\helpers\Url::to(['site/track'])?>">Tracking</a></li>
                             <li<?= \yii\helpers\Url::current()==\yii\helpers\Url::to(['site/about'])?' class="active"':''?>><a href="<?= \yii\helpers\Url::to(['site/about'])?>">About Us</a></li>
-                            <li><a href="#contact.html">Contact Us</a></li>
+                            <li<?= \yii\helpers\Url::current()==\yii\helpers\Url::to(['site/contact_us'])?' class="active"':''?>><a href="<?= \yii\helpers\Url::to(['site/contact_us'])?>">Contact Us</a></li>
                         </ul>
                     </div>
                 </div>
