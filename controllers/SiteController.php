@@ -2,6 +2,7 @@
 
 namespace app\controllers;
 
+use app\models\Post;
 use app\models\ShipmentCode;
 use app\models\ShipmentCodeSearch;
 use app\models\TrackForm;
@@ -53,6 +54,12 @@ class SiteController extends Controller
 
     public function actionIndex()
     {
+//        Post::find()->innerJoinWith('termRelationships')->innerJoinWith('categoryTaxonomies')->innerJoinWith('categoryTerms')->select('post.*, post_term.name, post_term.slug')->where(['post.id'=>'5501'])->all();
+        //die(var_dump(Post::find()->innerJoinWith('termRelationships')->innerJoinWith('categoryTaxonomies')->innerJoinWith('categoryTerms')->select('post.*, post_term.name, post_term.slug')->where(['post.id'=>'5501'])->all()->createCommand()->queryAll()));
+        //die(var_dump(Post::find()->innerJoinWith('categoryTaxonomies')->innerJoin('post_term','term_id=post_term.id')->select('post.*, post_term.name, post_term.slug')->where(['post.id'=>'5501'])->createCommand()->rawSql));
+        //die(var_dump(Post::findOne('5501')->tags[0]->getPostTerm()->createCommand()->rawSql));
+
+
         $this->layout = 'frontend';
         Yii::$app->assetManager->bundles['yii\bootstrap\BootstrapAsset'] = false;
         Yii::$app->assetManager->bundles['yii\web\JqueryAsset'] = false;
@@ -103,21 +110,29 @@ class SiteController extends Controller
         return $this->goHome();
     }
 
-    public function actionContact()
+    public function actionContact_us()
     {
-        $model = new ContactForm();
+        $model = new ContactForm;
+        $this->layout = 'frontend';
+        Yii::$app->assetManager->bundles['yii\bootstrap\BootstrapAsset'] = false;
+        Yii::$app->assetManager->bundles['yii\web\JqueryAsset'] = false;
+        Yii::$app->assetManager->bundles['yii\web\YiiAsset'] = false;
         if ($model->load(Yii::$app->request->post()) && $model->contact(Yii::$app->params['adminEmail'])) {
             Yii::$app->session->setFlash('contactFormSubmitted');
 
             return $this->refresh();
         }
-        return $this->render('contact', [
+        return $this->render('contact_us', [
             'model' => $model,
         ]);
     }
 
     public function actionAbout()
     {
+        $this->layout = 'frontend';
+        Yii::$app->assetManager->bundles['yii\bootstrap\BootstrapAsset'] = false;
+        Yii::$app->assetManager->bundles['yii\web\JqueryAsset'] = false;
+        Yii::$app->assetManager->bundles['yii\web\YiiAsset'] = false;
         return $this->render('about');
     }
 }

@@ -47,7 +47,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 <div class="thumbnail thumbnail-mod-2"><span class="icon icon-primary icon-lg icon-mod-1 fa-cogs"></span>
                     <div class="caption">
                         <h4> WHAT WE DO</h4>
-                        <p>Jasa Import via Udara dan Laut, Full Container Load ( 20” dan 40” ).
+                        <p>Jasa Import via Udara dan Laut, Full Container Load ( 20" dan 40" ).
 
                             Door To Door Service ( Singapore, China, Yiwu, Shanghai, Korea, Taiwan, Bangkok, USA, Itali, Jerman, Malaysia, dan Negara lainnya )
                         </p>

@@ -65,10 +65,25 @@ $config = [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
-                'POST track.html' => 'site/track',
+                [
+                    'verb' => 'POST',
+                    'pattern' => '<action:(track|contact_us)>',
+                    'route' => 'site/<action>',
+                    'suffix' => '.php',
+                    'mode' => 1
+
+                ],
+//                'POST contact_us.php' => 'site/contact_us',
+                [
+                    'verb' => 'POST',
+                    'pattern' => '<action:(track|contact_us)>',
+                    'route' => 'POST site/<action>',
+                    'suffix' => '.php',
+                    'mode' => 2
+                ],
                 [
                     'verb' => 'GET',
-                    'pattern' => '<action:(index|track|about)>',
+                    'pattern' => '<action:(index|track|about|contact_us)>',
                     'route' => 'site/<action>',
                     'suffix' => '.html',
                 ],

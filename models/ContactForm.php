@@ -10,10 +10,12 @@ use yii\base\Model;
  */
 class ContactForm extends Model
 {
-    public $name;
+    public $firstname;
+    public $lastname;
     public $email;
     public $subject;
     public $body;
+    public $phone;
     public $verifyCode;
 
 
@@ -24,11 +26,11 @@ class ContactForm extends Model
     {
         return [
             // name, email, subject and body are required
-            [['name', 'email', 'subject', 'body'], 'required'],
+            [['firstname', 'email', 'subject', 'body'], 'required'],
             // email has to be a valid email address
             ['email', 'email'],
             // verifyCode needs to be entered correctly
-            ['verifyCode', 'captcha'],
+            ['verifyCode', \himiklab\yii2\recaptcha\ReCaptchaValidator::className(), 'secret' => '6LfoQSITAAAAADnXU-1pGmeSJTt1f-9v9tFHIoUK'],
         ];
     }
 
@@ -49,10 +51,13 @@ class ContactForm extends Model
      */
     public function contact($email)
     {
+        if (!$this->subject) {
+            $this->subject = 'Message From '.$this->firstname.' '.$this->lastname;
+        }
         if ($this->validate()) {
             Yii::$app->mailer->compose()
                 ->setTo($email)
-                ->setFrom([$this->email => $this->name])
+                ->setFrom([$this->email => $this->firstname.' '.$this->lastname])
                 ->setSubject($this->subject)
                 ->setTextBody($this->body)
                 ->send();

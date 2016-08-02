@@ -25914,6 +25914,10 @@ a.fa-shopping-cart,
   max-height: 286.5px;
 }
 
+.rd-mailform .g-recaptcha > * {
+  margin: 0 auto;
+}
+
 .rd-mailform > * + * {
   margin-top: 30px;
 }
