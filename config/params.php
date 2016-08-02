@@ -2,4 +2,12 @@
 
 return [
     'adminEmail' => 'info@konghai.com',
+    'avoid_slug' => ['contact_us', 'contact',
+        'about_us', 'about',
+        'blog', 'blogs',
+        'post', 'posts', 'page', 'pages', 'article', 'articles',
+        'contact-us', 'about-us', 'categories', 'category', 'tag', 'tags',
+        'gallery', 'galleries', 'images', 'img', 'image', 'picture', 'pictures',
+        'css', 'js', 'assets', 'fonts', 'font', '404',
+        'track', 'tracks', 'tracking', 'tracker', 'trackers'],
 ];
