@@ -58,7 +58,8 @@ class ContactForm extends Model
             Yii::$app->mailer->compose()
                 ->setTo($email)
                 ->setReplyTo([$this->email => $this->firstname.' '.$this->lastname])
-                ->setFrom(Yii::$app->params['adminEmail'])
+                ->setFrom(['no-reply@konghaicargo.com' => $this->firstname.' '.$this->lastname])
+                ->setCharset('iso-8859-1')
                 ->setSubject($this->subject)
                 ->setTextBody($this->body)
                 ->send();
