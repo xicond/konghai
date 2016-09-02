@@ -3,7 +3,7 @@
 /* @var $this yii\web\View */
 
 use yii\helpers\Html;
-use yii\captcha\Captcha;
+//use yii\captcha\Captcha;
 
 $this->title = 'Contact Us';
 $this->params['breadcrumbs'][] = $this->title;
@@ -55,7 +55,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                 'class' => 'col-xs-12 col-sm-12'
                             ],
                             'errorOptions'=>['class'=>'mfValidation'.($model->getErrors('body')?' mfValidation--active':'')],])
-                            ->widget(\himiklab\yii2\recaptcha\ReCaptcha::className()) ?>
+                            ->widget(\PetraBarus\Yii2\ReCaptcha\ReCaptcha::className()) ?>
                         <!-- RD SelectMenu-->
                         <button class="btn btn-primary btn-sm btn-min-width">send message</button>
 
@@ -75,7 +75,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     <div class="media">
                         <div class="media-left"><span class="icon icon-primary icon-sm fa-envelope"></span></div>
                         <div class="media-body">
-                            <p class="h6">Email</p><a href="mailto:#">info@konghai.com</a>
+                            <p class="h6">Email</p><a href="mailto:<?= Yii::$app->params['adminEmail']?>"><?= Yii::$app->params['adminEmail']?></a>
                         </div>
                     </div>
                 </address>
@@ -111,7 +111,7 @@ $this->params['breadcrumbs'][] = $this->title;
                             <p class="h6">Phones</p>
                             <dl class="dl-horizontal">
                                 <dt>Phone:</dt>
-                                <dd><a href="callto:622155957980">( 021 ) 55957980</a></dd>
+                                <dd><a href="callto:<?= preg_replace('@[^0-9]@','',Yii::$app->params['callCenter'])?>"><?= Yii::$app->params['callCenter']?></a></dd>
                                 <!--<dt>FAX:</dt>
                                 <dd><a href="callto:#">+1 800 889 9898</a></dd>-->
                             </dl>

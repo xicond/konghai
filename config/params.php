@@ -2,6 +2,7 @@
 
 return [
     'adminEmail' => 'info@konghai.com',
+    'callCenter' => '( 021 ) 55957980',
     'avoid_slug' => ['contact_us', 'contact',
         'about_us', 'about',
         'blog', 'blogs',
