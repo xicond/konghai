@@ -30,7 +30,7 @@ class ContactForm extends Model
             // email has to be a valid email address
             ['email', 'email'],
             // verifyCode needs to be entered correctly
-            ['verifyCode', \PetraBarus\Yii2\ReCaptcha\ReCaptcha::className()],
+            ['verifyCode', \PetraBarus\Yii2\ReCaptcha\ReCaptchaValidator::className()],
         ];
     }
 
