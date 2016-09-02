@@ -30,6 +30,12 @@ $this->params['breadcrumbs'][] = $this->title;
                         ],
                         'errorOptions'=>['tag'=>'div', 'class'=>'mfValidation'],]
                 ]); ?>
+                <?php if (Yii::$app->session->hasFlash('contactFormSubmitted')): ?>
+
+                    <div class="alert alert-success">
+                        Thank you for contacting us. We will respond to you as soon as possible.
+                    </div>
+                <?php endif ?>
 <!--                <form data-result-class="rd-mailform-validate" data-form-type="contact" method="post" action="bat/rd-mailform.php" class="rd-mailform row">-->
 
                 <div class="col-xs-12">
