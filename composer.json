@@ -19,7 +19,7 @@
         "yiisoft/yii2-bootstrap": "*",
         "yiisoft/yii2-swiftmailer": "*",
         "himiklab/yii2-recaptcha-widget": "*",
-        "dektrium/yii2-user": "0.9.*@dev",
+        "dektrium/yii2-user": "0.9.*@dev"
     },
     "require-dev": {
         "mdmsoft/yii2-admin": "3.2"
