@@ -120,7 +120,7 @@ class SiteController extends Controller
         if ($model->load(Yii::$app->request->post()) && $model->contact(Yii::$app->params['adminEmail'])) {
             Yii::$app->session->setFlash('contactFormSubmitted');
 
-            return $this->refresh();
+            return $this->redirect(['site/contact_us']);
         }
         return $this->render('contact_us', [
             'model' => $model,
