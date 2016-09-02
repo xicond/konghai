@@ -11,4 +11,9 @@ return [
         'gallery', 'galleries', 'images', 'img', 'image', 'picture', 'pictures',
         'css', 'js', 'assets', 'fonts', 'font', '404',
         'track', 'tracks', 'tracking', 'tracker', 'trackers'],
+
+    'reCaptcha' => [
+        'siteKey' => '6LfoQSITAAAAAHrdGO9XotXacUETxAlX9FSf-Vck',
+        'secretKey' => '6LfoQSITAAAAADnXU-1pGmeSJTt1f-9v9tFHIoUK',
+    ],
 ];
