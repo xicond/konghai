@@ -4,6 +4,7 @@ namespace app\models;
 
 use Yii;
 use yii\base\Model;
+use yii\swiftmailer\Message;
 
 /**
  * ContactForm is the model behind the contact form.
@@ -55,14 +56,23 @@ class ContactForm extends Model
             $this->subject = 'Message From '.$this->firstname.' '.$this->lastname;
         }
         if ($this->validate()) {
-            Yii::$app->mailer->compose()
+            $message = Yii::$app->mailer->compose()
                 ->setTo($email)
                 ->setReplyTo([$this->email => $this->firstname.' '.$this->lastname])
                 ->setFrom(['no-reply@konghaicargo.com' => $this->firstname.' '.$this->lastname])
                 ->setCharset('iso-8859-1')
                 ->setSubject($this->subject)
-                ->setTextBody($this->body)
-                ->send();
+                ->setHtmlBody(nl2br($this->body,1));
+
+            /**
+             * @var $message Message
+             */
+
+//            $headers = $message->getSwiftMessage()->getHeaders();
+//            $headers->addTextHeader('Return-Path', '')
+
+
+            $message->send();
 
             return true;
         }
