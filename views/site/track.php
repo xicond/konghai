@@ -39,7 +39,7 @@ $this->title = 'Track now';
 
                         <?= $form->field($model, 'code')->textInput(['placeholder'=>'for demo type: AXN123']) ?>
 
-                        <?= $form->field($model, 'reCaptcha')->widget(\himiklab\yii2\recaptcha\ReCaptcha::className()) ?>
+                        <?= $form->field($model, 'reCaptcha')->widget(\PetraBarus\Yii2\ReCaptcha\ReCaptcha::className()::className()) ?>
 
                         <div class="form-group">
                             <?= Html::submitButton(\Yii::t('app','Track now'), ['class' => 'btn btn-primary']) ?>
