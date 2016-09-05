@@ -24,6 +24,11 @@ $config = [
                 ],
             ],
         ],
+        'urlManager' => [
+            'enablePrettyUrl' => true,
+            'showScriptName' => false,
+            'rules' => require(__DIR__ . "/rules.php"),
+        ],
         'formatter' =>
         [
             'class' => 'yii\i18n\Formatter',
