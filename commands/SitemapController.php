@@ -28,7 +28,7 @@ class SitemapController extends Controller
         // this is the directory where sitemaps would be generated
 		$this->basePath = '@web';
 
-		$this->generateFiles();
+		$this->generateFile();
 		$this->generateIndexFile();
 	}
 
