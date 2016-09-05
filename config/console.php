@@ -27,6 +27,7 @@ $config = [
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
+            'baseUrl' => '',
             'rules' => require(__DIR__ . "/rules.php"),
         ],
         'formatter' =>
