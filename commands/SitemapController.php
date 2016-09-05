@@ -26,7 +26,7 @@ class SitemapController extends Controller
 	public function actionIndex()
 	{
         // this is the directory where sitemaps would be generated
-		$this->basePath = Yii::getAlias('@web');
+		$this->basePath = Yii::getAlias('@app/web');
 
 		$this->generateFile();
 		$this->generateIndexFile();
