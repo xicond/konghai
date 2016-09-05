@@ -28,6 +28,7 @@ $config = [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'baseUrl' => '',
+            'hostInfo' => 'http://www.konghaicargo.com',
             'rules' => require(__DIR__ . "/rules.php"),
         ],
         'formatter' =>
