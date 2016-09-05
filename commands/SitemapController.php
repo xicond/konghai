@@ -49,7 +49,7 @@ class SitemapController extends Controller
 		$siteMapFile->writeUrl(['site/index'], ['priority' => '0.9', 'changeFrequency' => File::CHECK_FREQUENCY_WEEKLY]);
 		$siteMapFile->writeUrl(['site/about'], ['priority' => '0.8', 'changeFrequency' => File::CHECK_FREQUENCY_WEEKLY]);
 		$siteMapFile->writeUrl(['site/track'], ['priority' => '0.7', 'lastModified' => '2015-05-07', 'changeFrequency' => File::CHECK_FREQUENCY_MONTHLY]);
-		$siteMapFile->writeUrl(['site/contact_us', 'changeFrequency' => File::CHECK_FREQUENCY_MONTHLY]);
+		$siteMapFile->writeUrl(['site/contact_us'], ['changeFrequency' => File::CHECK_FREQUENCY_MONTHLY]);
 
 		$siteMapFile->close();
 	}
