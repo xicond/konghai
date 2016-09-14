@@ -25,6 +25,8 @@ AppAsset::register($this);
     <!-- Stylesheets-->
     <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Ubuntu:400,500,700%7COpen+Sans:400,300);">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="canonical"
+          href="http://www.konghaicargo.com/">
     <!--[if lt IE 10]>
     <div style="background: #212121; padding: 10px 0; box-shadow: 3px 3px 5px 0 rgba(0,0,0,.3); clear: both; text-align:center; position: relative; z-index:1;">
         <a href="http://windows.microsoft.com/en-US/internet-explorer/">
@@ -37,6 +39,32 @@ AppAsset::register($this);
 </head>
 <body>
 <?php $this->beginBody() ?>
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/id_ID/sdk.js#xfbml=1&version=v2.7";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
+
+<script>window.twttr = (function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0],
+            t = window.twttr || {};
+        if (d.getElementById(id)) return t;
+        js = d.createElement(s);
+        js.id = id;
+        js.src = "https://platform.twitter.com/widgets.js";
+        fjs.parentNode.insertBefore(js, fjs);
+
+        t._e = [];
+        t.ready = function(f) {
+            t._e.push(f);
+        };
+
+        return t;
+    }(document, "script", "twitter-wjs"));</script>
 
 <div class="page text-center">
     <!-- Page Header-->
@@ -102,6 +130,11 @@ AppAsset::register($this);
                 <div class="jumbotron-mod-1 text-center">
                     <div>
                         <h1><small>We Serve Better Than Other</small><span class='text-bold'>Konghai</span></h1>
+                        <div class="counter">
+                            <script type="text/javascript" src="http://counter5.01counter.com/private/counter.js?c=19bc15df9d744d3f74ff26db56cc7eb7"></script>
+                            <noscript><a href="http://www.freecounterstat.com" title="website counter code"><img src="http://counter5.01counter.com/private/freecounterstat.php?c=19bc15df9d744d3f74ff26db56cc7eb7" border="0" title="website counter code" alt="website counter code"></a>
+                            </noscript>
+                        </div>
                         <div class="slogan">
                             <p>Ekspedisi barang import door to door terbesar ke 5 di Indonesia berdiri sejak 2006</p>
                         </div>
@@ -148,6 +181,20 @@ AppAsset::register($this);
 <!-- Java script-->
 <script src="js/core.min.js"></script>
 <script src="js/script.js"></script>
+<!-- Place this tag in your head or just before your close body tag. -->
+<script src="https://apis.google.com/js/platform.js" async defer></script>
+
+<script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-84180414-1', 'auto');
+    ga('send', 'pageview');
+
+</script>
+
 <?php $this->endBody() ?>
 <?php $this->endPage() ?>
 </body>

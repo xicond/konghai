@@ -89,3 +89,14 @@ a.desc:after {
     padding: 10px 20px;
     margin: 0 0 15px 0;
 }
+.blog-post-share>div {
+    vertical-align: bottom!important;
+}
+.blog-post-share .twitt {
+    display:inline-block;
+}
+.blog-post-share .twitt .wrapper {
+    vertical-align: bottom;
+    height: 20px;
+    display: inline-block;
+}

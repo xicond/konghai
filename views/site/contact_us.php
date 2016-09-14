@@ -77,15 +77,52 @@ $this->params['breadcrumbs'][] = $this->title;
     <div class="container">
         <div class="row text-sm-left clearleft-custom">
             <div class="col-xs-12 col-sm-6 col-lg-4">
+                <div class="row">
+                    <div class="col-md-12">
+                        <address>
+                            <div class="media">
+                                <div class="media-left"><span class="icon icon-primary icon-sm fa-envelope"></span></div>
+                                <div class="media-body">
+                                    <p class="h6">Email</p><a href="mailto:<?= Yii::$app->params['adminEmail']?>"><?= Yii::$app->params['adminEmail']?></a>
+                                </div>
+                            </div>
+                        </address>
+
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <address>
+                            <div class="media">
+                                <div class="media-left"><span class="icon icon-primary icon-sm fa-phone"></span></div>
+                                <div class="media-body">
+                                    <p class="h6">Phones</p>
+                                    <dl class="dl-horizontal">
+                                        <dt>Phone:</dt>
+                                        <dd><a href="callto:<?= preg_replace('@[^0-9]@','',Yii::$app->params['callCenter'])?>"><?= Yii::$app->params['callCenter']?></a></dd>
+                                        <!--<dt>FAX:</dt>
+                                        <dd><a href="callto:#">+1 800 889 9898</a></dd>-->
+                                    </dl>
+                                </div>
+                            </div>
+                        </address>
+
+                    </div>
+                </div>
+            </div>
+
+            <!--<div class="col-xs-12 col-sm-6 col-lg-3">
                 <address>
                     <div class="media">
-                        <div class="media-left"><span class="icon icon-primary icon-sm fa-envelope"></span></div>
+                        <div class="media-left"><span class="icon icon-primary icon-sm fa-clock-o"></span></div>
                         <div class="media-body">
-                            <p class="h6">Email</p><a href="mailto:<?= Yii::$app->params['adminEmail']?>"><?= Yii::$app->params['adminEmail']?></a>
+                            <p class="h6">We Are Open</p><span>Open hours: 8.00-18.00 Mon-Sat</span>
                         </div>
                     </div>
                 </address>
-            </div>
+            </div>-->
+
             <div class="col-xs-12 col-sm-6 col-lg-4">
                 <address>
                     <div class="media">
@@ -98,32 +135,7 @@ $this->params['breadcrumbs'][] = $this->title;
                         </div>
                     </div>
                 </address>
-            </div>
-            <!--<div class="col-xs-12 col-sm-6 col-lg-3">
-                <address>
-                    <div class="media">
-                        <div class="media-left"><span class="icon icon-primary icon-sm fa-clock-o"></span></div>
-                        <div class="media-body">
-                            <p class="h6">We Are Open</p><span>Open hours: 8.00-18.00 Mon-Sat</span>
-                        </div>
-                    </div>
-                </address>
-            </div>-->
-            <div class="col-xs-12 col-sm-6 col-lg-4">
-                <address>
-                    <div class="media">
-                        <div class="media-left"><span class="icon icon-primary icon-sm fa-phone"></span></div>
-                        <div class="media-body">
-                            <p class="h6">Phones</p>
-                            <dl class="dl-horizontal">
-                                <dt>Phone:</dt>
-                                <dd><a href="callto:<?= preg_replace('@[^0-9]@','',Yii::$app->params['callCenter'])?>"><?= Yii::$app->params['callCenter']?></a></dd>
-                                <!--<dt>FAX:</dt>
-                                <dd><a href="callto:#">+1 800 889 9898</a></dd>-->
-                            </dl>
-                        </div>
-                    </div>
-                </address>
+
             </div>
         </div>
     </div>
