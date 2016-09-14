@@ -130,11 +130,11 @@ AppAsset::register($this);
                 <div class="jumbotron-mod-1 text-center">
                     <div>
                         <h1><small>We Serve Better Than Other</small><span class='text-bold'>Konghai</span></h1>
-                        <div class="counter">
+<!--                        <div class="counter">-->
                             <script type="text/javascript" src="http://counter5.01counter.com/private/counter.js?c=19bc15df9d744d3f74ff26db56cc7eb7"></script>
                             <noscript><a href="http://www.freecounterstat.com" title="website counter code"><img src="http://counter5.01counter.com/private/freecounterstat.php?c=19bc15df9d744d3f74ff26db56cc7eb7" border="0" title="website counter code" alt="website counter code"></a>
                             </noscript>
-                        </div>
+<!--                        </div>-->
                         <div class="slogan">
                             <p>Ekspedisi barang import door to door terbesar ke 5 di Indonesia berdiri sejak 2006</p>
                         </div>
