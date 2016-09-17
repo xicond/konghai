@@ -143,11 +143,36 @@ $this->params['breadcrumbs'][] = $this->title;
 <section>
     <!-- RD Google Map-->
     <div class="rd-google-map">
-        <div id="google-map" data-zoom="14" data-x="-73.9874068" data-y="40.643180" class="rd-google-map__model"></div>
-        <ul class="rd-google-map__locations">
-            <li data-x="-73.9874068" data-y="40.643180">
-                <p>9870 St Vincent Place, Glasgow, DC 45 Fr 45.<span>800 2345-6789</span></p>
-            </li>
-        </ul>
+        <div id="map" data-zoom="14" data-x="-73.9874068" data-y="40.643180" class="rd-google-map__model"></div>
+        <script type="text/javascript" src="//maps.google.com/maps/api/js?key=AIzaSyAJ9Fa6Rb3mlqUCrbTeYI9Yrq4N-_zTLfg"></script>
+        <script type="text/javascript">
+            var locations = [
+                ['Komplek Taman Palem Lestari , Ruko Galaxy Blok H No,32 Cengkareng - Jakarta Barat',-6.1380456,106.7256124,1] 	];
+
+            var map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 16,
+                center: new google.maps.LatLng(-6.1380456,106.7256124),
+                mapTypeId: google.maps.MapTypeId.ROADMAP
+            });
+
+            var infowindow = new google.maps.InfoWindow();
+
+            var marker, i;
+
+            for (i = 0; i < locations.length; i++) {
+                marker = new google.maps.Marker({
+                    position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+                    map: map
+                });
+
+                google.maps.event.addListener(marker, 'click', (function(marker, i) {
+                    return function() {
+                        infowindow.setContent(locations[i][0]);
+                        infowindow.open(map, marker);
+                    }
+                })(marker, i));
+            }
+        </script>
+        <div class="clear50 clear"></div>
     </div>
 </section>
