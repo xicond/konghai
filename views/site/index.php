@@ -74,113 +74,6 @@ $this->title = 'Konghai';
         </div>
     </div>
 </section>-->
-<section class="section bg-light">
-    <div class="container">
-        <h2 class="text-center">Alamat</h2>
-        <hr>
-        <div class="row">
-            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 read-content">
-
-                <section class="contact-map" id="map" style="height:300px"></section>
-                <script type="text/javascript" src="//maps.google.com/maps/api/js?key=AIzaSyAJ9Fa6Rb3mlqUCrbTeYI9Yrq4N-_zTLfg"></script>
-                <script type="text/javascript">
-                    var locations = [
-                        ['Komplek Taman Palem Lestari , Ruko Galaxy Blok H No,32 Cengkareng - Jakarta Barat',-6.1380456,106.7256124,1] 	];
-
-                    var map = new google.maps.Map(document.getElementById('map'), {
-                        zoom: 15,
-                        center: new google.maps.LatLng(-6.1380456,106.7256124),
-                        mapTypeId: google.maps.MapTypeId.ROADMAP
-                    });
-
-                    var infowindow = new google.maps.InfoWindow();
-
-                    var marker, i;
-
-                    for (i = 0; i < locations.length; i++) {
-                        marker = new google.maps.Marker({
-                            position: new google.maps.LatLng(locations[i][1], locations[i][2]),
-                            map: map
-                        });
-
-                        google.maps.event.addListener(marker, 'click', (function(marker, i) {
-                            return function() {
-                                infowindow.setContent(locations[i][0]);
-                                infowindow.open(map, marker);
-                            }
-                        })(marker, i));
-                    }
-                </script>
-                <div class="clear50 clear"></div>
-
-            </div>
-        </div>
-
-        <div class="row text-sm-left clearleft-custom">
-            <div class="col-xs-12 col-sm-6 col-lg-4">
-                <div class="row">
-                    <div class="col-md-12">
-                        <address>
-                            <div class="media">
-                                <div class="media-left"><span class="icon icon-primary icon-sm fa-envelope"></span></div>
-                                <div class="media-body">
-                                    <p class="h6">Email</p><a href="mailto:<?= Yii::$app->params['adminEmail']?>"><?= Yii::$app->params['adminEmail']?></a>
-                                </div>
-                            </div>
-                        </address>
-
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="col-md-12">
-                        <address>
-                            <div class="media">
-                                <div class="media-left"><span class="icon icon-primary icon-sm fa-phone"></span></div>
-                                <div class="media-body">
-                                    <p class="h6">Phones</p>
-                                    <dl class="dl-horizontal">
-                                        <dt>Phone:</dt>
-                                        <dd><a href="callto:<?= preg_replace('@[^0-9]@','',Yii::$app->params['callCenter'])?>"><?= Yii::$app->params['callCenter']?></a></dd>
-                                        <!--<dt>FAX:</dt>
-                                        <dd><a href="callto:#">+1 800 889 9898</a></dd>-->
-                                    </dl>
-                                </div>
-                            </div>
-                        </address>
-
-                    </div>
-                </div>
-            </div>
-
-            <!--<div class="col-xs-12 col-sm-6 col-lg-3">
-                <address>
-                    <div class="media">
-                        <div class="media-left"><span class="icon icon-primary icon-sm fa-clock-o"></span></div>
-                        <div class="media-body">
-                            <p class="h6">We Are Open</p><span>Open hours: 8.00-18.00 Mon-Sat</span>
-                        </div>
-                    </div>
-                </address>
-            </div>-->
-
-            <div class="col-xs-12 col-sm-6 col-lg-4">
-                <address>
-                    <div class="media">
-                        <div class="media-left"><span class="icon icon-primary icon-sm fa-map-marker"></span></div>
-                        <div class="media-body">
-                            <p class="h6">Alamat</p><span><!--<a href="#">-->
-                                    Kompleks Ruko Taman Palem Lestari<br />Blok H 32<br />
-                                    Jl. Kamal Raya Outer Ring Road, Cengkareng – Jakarta Barat
-                                <!--</a>--></span>
-                        </div>
-                    </div>
-                </address>
-
-            </div>
-        </div>
-    </div>
-</section>
 <section class="section section-inset-1 bg-primary">
     <div class="container">
         <h2 class="text-center">about konghai</h2>
@@ -361,34 +254,109 @@ $this->title = 'Konghai';
         </div>
     </div>
 </section>-->
-<section class="bg-light rd-parallax">
-    <div data-speed="0" data-md-speed="0.2" data-type="media" data-url="images/index-11.jpg" class="rd-parallax-layer"></div>
-    <div class="container section section-inset-1 z-index">
-        <h2 class="text-center">Contact us</h2>
+<section class="section bg-light">
+    <div class="container">
+        <h2 class="text-center">Alamat</h2>
         <hr>
-        <div class="row offset-3">
-            <div class="col-xs-12 col-md-9 col-lg-6 col-md-offset-2 col-lg-offset-3">
-                <!--p.fw-l.h5.text-transform-none Enter your email address to receive all company news, special offers and other discount information.-->
-                <!-- RD Mailform-->
-                <form data-result-class="rd-mailform-validate" data-form-type="contact" method="post" action="bat/rd-mailform.php" class="rd-mailform row">
-                    <div class="col-xs-12 col-sm-6">
-                        <input type="text" name="name" data-constraints="@NotEmpty" placeholder="Your first name...">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 read-content">
+
+                <section class="contact-map" id="map" style="height:300px"></section>
+                <script type="text/javascript" src="//maps.google.com/maps/api/js?key=AIzaSyAJ9Fa6Rb3mlqUCrbTeYI9Yrq4N-_zTLfg"></script>
+                <script type="text/javascript">
+                    var locations = [
+                        ['Komplek Taman Palem Lestari , Ruko Galaxy Blok H No,32 Cengkareng - Jakarta Barat',-6.1380456,106.7256124,1] 	];
+
+                    var map = new google.maps.Map(document.getElementById('map'), {
+                        zoom: 15,
+                        center: new google.maps.LatLng(-6.1380456,106.7256124),
+                        mapTypeId: google.maps.MapTypeId.ROADMAP
+                    });
+
+                    var infowindow = new google.maps.InfoWindow();
+
+                    var marker, i;
+
+                    for (i = 0; i < locations.length; i++) {
+                        marker = new google.maps.Marker({
+                            position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+                            map: map
+                        });
+
+                        google.maps.event.addListener(marker, 'click', (function(marker, i) {
+                            return function() {
+                                infowindow.setContent(locations[i][0]);
+                                infowindow.open(map, marker);
+                            }
+                        })(marker, i));
+                    }
+                </script>
+                <div class="clear50 clear"></div>
+
+            </div>
+        </div>
+
+        <div class="row text-sm-left clearleft-custom">
+            <div class="col-xs-12 col-sm-6 col-lg-6 col-lg-push-2">
+                <div class="row">
+                    <div class="col-md-12">
+                        <address>
+                            <div class="media">
+                                <div class="media-left"><span class="icon icon-primary icon-sm fa-envelope"></span></div>
+                                <div class="media-body">
+                                    <p class="h6">Email</p><a href="mailto:<?= Yii::$app->params['adminEmail']?>"><?= Yii::$app->params['adminEmail']?></a>
+                                </div>
+                            </div>
+                        </address>
+
                     </div>
-                    <div class="col-xs-12 col-sm-6">
-                        <input type="text" name="name" data-constraints="@NotEmpty" placeholder="Your last name...">
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <address>
+                            <div class="media">
+                                <div class="media-left"><span class="icon icon-primary icon-sm fa-phone"></span></div>
+                                <div class="media-body">
+                                    <p class="h6">Phones</p>
+                                    <dl class="dl-horizontal">
+                                        <dt>Phone:</dt>
+                                        <dd><a href="callto:<?= preg_replace('@[^0-9]@','',Yii::$app->params['callCenter'])?>"><?= Yii::$app->params['callCenter']?></a></dd>
+                                        <!--<dt>FAX:</dt>
+                                        <dd><a href="callto:#">+1 800 889 9898</a></dd>-->
+                                    </dl>
+                                </div>
+                            </div>
+                        </address>
+
                     </div>
-                    <div class="col-xs-12 col-sm-6">
-                        <input type="text" name="email" data-constraints="@NotEmpty @Email" placeholder="Your e-mail...">
+                </div>
+            </div>
+
+            <!--<div class="col-xs-12 col-sm-6 col-lg-3">
+                <address>
+                    <div class="media">
+                        <div class="media-left"><span class="icon icon-primary icon-sm fa-clock-o"></span></div>
+                        <div class="media-body">
+                            <p class="h6">We Are Open</p><span>Open hours: 8.00-18.00 Mon-Sat</span>
+                        </div>
                     </div>
-                    <div class="col-xs-12 col-sm-6">
-                        <input type="text" data-constraints="@Phone" name="phone" placeholder="Your phone..." class="form-input">
+                </address>
+            </div>-->
+
+            <div class="col-xs-12 col-sm-6 col-lg-4">
+                <address>
+                    <div class="media">
+                        <div class="media-left"><span class="icon icon-primary icon-sm fa-map-marker"></span></div>
+                        <div class="media-body">
+                            <p class="h6">Alamat</p><span><!--<a href="#">-->
+                                    Kompleks Ruko Taman Palem Lestari<br />Blok H 32<br />
+                                    Jl. Kamal Raya Outer Ring Road, Cengkareng – Jakarta Barat
+                                <!--</a>--></span>
+                        </div>
                     </div>
-                    <div class="col-xs-12 col-sm-12">
-                        <textarea name="message" data-constraints="@NotEmpty" placeholder="Message:"></textarea>
-                    </div>
-                    <!-- RD SelectMenu-->
-                    <button class="btn btn-primary btn-sm btn-min-width">send message</button>
-                </form>
+                </address>
+
             </div>
         </div>
     </div>
