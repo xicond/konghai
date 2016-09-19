@@ -227,7 +227,7 @@ class ShipmentCode extends \yii\db\ActiveRecord
     {
         return [
             'id' => Yii::t('db', 'ID'),
-            'code' => Yii::t('db', 'Code'),
+            'code' => Yii::t('db', 'Shipment Code'),
             'type' => Yii::t('db', 'Type'),
             'shipment_id' => Yii::t('db', 'Shipment ID'),
             'input_by' => Yii::t('db', 'Input By'),

@@ -12,13 +12,18 @@ use yii\db\ActiveRecord;
  * @property string $from
  * @property string $to
  * @property string $address_to
+ * @property string $address_from
  * @property integer $input_by
  * @property integer $update_by
  * @property string $history
  * @property string $input_time
  * @property string $update_time
  * @property string $description
- * @property string $address_from
+ * @property integer $colly
+ * @property string $means
+ * @property string $weight
+ * @property string $loading_date
+ * @property string $estimate_arrive_date
  *
  * @property ShipmentCode[] $shipmentCodes
  * @property Tracker[] $trackers
@@ -55,6 +60,88 @@ class Shipment extends \yii\db\ActiveRecord
                 ],
                 'value' => Yii::$app->user->id,
             ],
+
+            'loading_date' => [
+                'class' => 'yii\behaviors\AttributeBehavior',
+                'attributes' => [
+                    ActiveRecord::EVENT_BEFORE_INSERT => ['loading_date'],
+                    ActiveRecord::EVENT_BEFORE_UPDATE => ['loading_date'],
+                ],
+                'value' => function (\yii\base\Event $event) {
+                    $parent = $event->sender;
+                    /**
+                     * @var $parent self
+                     */
+                    // if($parent->delete_time)
+
+                    $date = explode('-',$parent->loading_date);
+                    if(count($date)==3 && strlen($date[0])==4 && strlen($date[1])<=2 && strlen($date[2])<=2 )
+                        return $parent->loading_date;
+
+                    return date('Y-m-d',strtotime($parent->loading_date));
+                },
+            ],
+            'loading_date_show' => [
+                'class' => 'yii\behaviors\AttributeBehavior',
+                'attributes' => [
+                    ActiveRecord::EVENT_AFTER_FIND => ['loading_date'],
+                    ActiveRecord::EVENT_AFTER_REFRESH => ['loading_date'],
+                ],
+                'value' => function (\yii\base\Event $event) {
+                    $parent = $event->sender;
+                    /**
+                     * @var $parent self
+                     */
+                    // if($parent->delete_time)
+
+                    $date = explode('-',$parent->loading_date);
+                    if(count($date)==3 && strlen($date[0])==4 && strlen($date[1])<=2 && strlen($date[2])<=2 )
+                        return date('d F Y',strtotime($parent->loading_date));
+
+                    return $parent->loading_date;
+                },
+            ],
+            'estimate_arrive_date' => [
+                'class' => 'yii\behaviors\AttributeBehavior',
+                'attributes' => [
+                    ActiveRecord::EVENT_BEFORE_INSERT => ['estimate_arrive_date'],
+                    ActiveRecord::EVENT_BEFORE_UPDATE => ['estimate_arrive_date'],
+                ],
+                'value' => function (\yii\base\Event $event) {
+                    $parent = $event->sender;
+                    /**
+                     * @var $parent self
+                     */
+                    // if($parent->delete_time)
+
+                    $date = explode('-',$parent->estimate_arrive_date);
+                    if(count($date)==3 && strlen($date[0])==4 && strlen($date[1])<=2 && strlen($date[2])<=2 )
+                        return $parent->estimate_arrive_date;
+
+                    return date('Y-m-d',strtotime($parent->estimate_arrive_date));
+                },
+            ],
+            'estimate_arrive_date_show' => [
+                'class' => 'yii\behaviors\AttributeBehavior',
+                'attributes' => [
+                    ActiveRecord::EVENT_AFTER_FIND => ['estimate_arrive_date'],
+                    ActiveRecord::EVENT_AFTER_REFRESH => ['estimate_arrive_date'],
+                ],
+                'value' => function (\yii\base\Event $event) {
+                    $parent = $event->sender;
+                    /**
+                     * @var $parent self
+                     */
+                    // if($parent->delete_time)
+
+                    $date = explode('-',$parent->estimate_arrive_date);
+                    if(count($date)==3 && strlen($date[0])==4 && strlen($date[1])<=2 && strlen($date[2])<=2 )
+                        return date('d F Y',strtotime($parent->estimate_arrive_date));
+
+                    return $parent->estimate_arrive_date;
+                },
+            ],
+
             'history' => [
                 'class' => 'yii\behaviors\AttributeBehavior',
                 'attributes' => [
@@ -92,11 +179,13 @@ class Shipment extends \yii\db\ActiveRecord
     {
         return [
             [['from', 'to', 'address_from'], 'required'], //, 'input_by', 'input_time', 'update_time'
-            [['input_by', 'update_by'], 'integer'],
+            [['input_by', 'update_by', 'colly'], 'integer'],
             [['history'], 'string'],
-            [['input_time', 'update_time'], 'safe'],
+            [['input_time', 'update_time', 'loading_date', 'estimate_arrive_date'], 'safe'],
+            [['weight'], 'number'],
             [['from', 'to'], 'string', 'max' => 50],
             [['address_to', 'address_from', 'description'], 'string', 'max' => 255],
+            [['means'], 'string', 'max' => 30],
         ];
     }
 
@@ -117,6 +206,11 @@ class Shipment extends \yii\db\ActiveRecord
             'update_time' => Yii::t('db', 'Update Time'),
             'description' => Yii::t('db', 'Description'),
             'address_from' => Yii::t('db', 'Origin'),
+            'colly' => Yii::t('db', 'Colly'),
+            'means' => Yii::t('db', 'Means'),
+            'weight' => Yii::t('db', 'Weight'),
+            'loading_date' => Yii::t('db', 'Loading Date'),
+            'estimate_arrive_date' => Yii::t('db', 'Estimate Arrive Date'),
         ];
     }
 

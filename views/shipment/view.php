@@ -6,7 +6,7 @@ use yii\widgets\DetailView;
 /* @var $this yii\web\View */
 /* @var $model app\models\Shipment */
 
-$this->title = Yii::t('admin', 'Detail').' '.$model->id;
+$this->title = Yii::t('admin', 'Detail Shipment').' '.$model->id;
 $this->params['breadcrumbs'][] = ['label' => Yii::t('admin', 'Shipments'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
@@ -33,6 +33,10 @@ $this->params['breadcrumbs'][] = $this->title;
             'to',
             'address_to',
             'address_from',
+            'colly',
+            'weight',
+            'loading_date',
+            'estimate_arrive_date',
 //            'input_by',
 //            'update_by',
 //            'history:ntext',
@@ -43,7 +47,7 @@ $this->params['breadcrumbs'][] = $this->title;
     ]) ?>
 
     <p>
-    <?= Html::a(Yii::t('admin', 'Add Code'), ['shipment-code/create', 'sid'=>$model->id], ['class' => 'btn btn-success']) ?>
+    <?= Html::a(Yii::t('admin', 'Add Shipment Code'), ['shipment-code/create', 'sid'=>$model->id], ['class' => 'btn btn-success']) ?>
     </p>
 
     <?= $this->render('_view_code', [

@@ -24,7 +24,37 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'address_from')->textInput(['maxlength' => true]) ?>
 
-<!--    --><?php //= $form->field($model, 'input_by')->textInput() ?>
+    <?= $form->field($model, 'colly')->textInput(['type'=>'number', 'min'=>'1', 'step'=>'1', 'maxlength' => true]) ?>
+
+    <?= $form->field($model, 'means')->textInput(['maxlength' => true]) ?>
+
+    <?= $form->field($model, 'weight')->textInput(['type'=>'number', 'min'=>'0.01', 'step'=>'0.01', 'maxlength' => true]) ?>
+
+    <?= $form->field($model, 'loading_date')->widget(\kartik\date\DatePicker::classname(), [
+        'options' => ['placeholder' => 'Select loading date ...'],
+        'value' => date('d-M-Y', strtotime('+2 days')),
+        'pluginOptions' => [
+            'format' => 'dd MM yyyy',
+            'todayHighlight' => true,
+            'autoclose'=>true,
+            'convertFormat'=>true
+        ]
+    ]); ?>
+
+
+    <?= $form->field($model, 'estimate_arrive_date')->widget(\kartik\date\DatePicker::classname(), [
+        'options' => ['placeholder' => 'Select date ...'],
+        'value' => date('d-M-Y', strtotime('+2 days')),
+        'pluginOptions' => [
+            'format' => 'dd MM yyyy',
+            'todayHighlight' => true,
+            'autoclose'=>true,
+            'convertFormat'=>true
+        ]
+    ]); ?>
+
+
+    <!--    --><?php //= $form->field($model, 'input_by')->textInput() ?>
 
 <!--    --><?php //= $form->field($model, 'update_by')->textInput() ?>
 
