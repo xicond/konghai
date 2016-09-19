@@ -78,7 +78,9 @@ class Shipment extends \yii\db\ActiveRecord
                     if(count($date)==3 && strlen($date[0])==4 && strlen($date[1])<=2 && strlen($date[2])<=2 )
                         return $parent->loading_date;
 
-                    return date('Y-m-d',strtotime($parent->loading_date));
+                    $result = date('Y-m-d',strtotime($parent->loading_date));
+                    if($result == '1970-01-01') return NULL;
+                    return $result;
                 },
             ],
             'loading_date_show' => [
@@ -93,6 +95,7 @@ class Shipment extends \yii\db\ActiveRecord
                      * @var $parent self
                      */
                     // if($parent->delete_time)
+                    if(!$parent->loading_date)return;
 
                     $date = explode('-',$parent->loading_date);
                     if(count($date)==3 && strlen($date[0])==4 && strlen($date[1])<=2 && strlen($date[2])<=2 )
@@ -118,7 +121,9 @@ class Shipment extends \yii\db\ActiveRecord
                     if(count($date)==3 && strlen($date[0])==4 && strlen($date[1])<=2 && strlen($date[2])<=2 )
                         return $parent->estimate_arrive_date;
 
-                    return date('Y-m-d',strtotime($parent->estimate_arrive_date));
+                    $result = date('Y-m-d',strtotime($parent->estimate_arrive_date));
+                    if($result == '1970-01-01') return NULL;
+                    return $result;
                 },
             ],
             'estimate_arrive_date_show' => [
@@ -133,6 +138,7 @@ class Shipment extends \yii\db\ActiveRecord
                      * @var $parent self
                      */
                     // if($parent->delete_time)
+                    if(!$parent->estimate_arrive_date)return;
 
                     $date = explode('-',$parent->estimate_arrive_date);
                     if(count($date)==3 && strlen($date[0])==4 && strlen($date[1])<=2 && strlen($date[2])<=2 )

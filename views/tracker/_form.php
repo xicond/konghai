@@ -10,7 +10,7 @@ use yii\widgets\ActiveForm;
 
 <div class="tracker-form">
 
-    <?php $form = ActiveForm::begin(['action' => ['POST site/track'],]); ?>
+    <?php $form = ActiveForm::begin(); ?>
 
     <?php // = $form->field($model, 'shipment_id')->textInput(['maxlength' => true]) ?>
 

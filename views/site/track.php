@@ -33,13 +33,14 @@ $this->title = 'Track now';
 
                         <?php $form = ActiveForm::begin([
                             'id' => 'shipment-form',
+                            'action' => ['POST site/track'],
 //                            'enableAjaxValidation' => true,
 //                            'enableClientValidation' => false,
                         ]); ?>
 
                         <?= $form->field($model, 'code')->textInput(['placeholder'=>'for demo type: AXN123']) ?>
 
-                        <?= $form->field($model, 'reCaptcha')->widget(\PetraBarus\Yii2\ReCaptcha\ReCaptcha::className()::className()) ?>
+                        <?= $form->field($model, 'reCaptcha')->widget(\PetraBarus\Yii2\ReCaptcha\ReCaptcha::className()) ?>
 
                         <div class="form-group">
                             <?= Html::submitButton(\Yii::t('app','Track now'), ['class' => 'btn btn-primary']) ?>
@@ -73,11 +74,43 @@ $this->title = 'Track now';
                                 <td><?=$shipment->address_from?></td>
                                 <td><?=$shipment->address_to?></td>
                             </tr>
+                            <?php if($shipment->colly || $shipment->means || $shipment->weight):?>
+                            <tr>
+                                <th>Colly</th>
+                                <th>Means</th>
+                                <th>Weight</th>
+                            </tr>
+                            <tr>
+                                <td><?=$shipment->colly?></td>
+                                <td><?=$shipment->means?></td>
+                                <td><?=$shipment->weight?></td>
+                            </tr>
+                            <?php endif?>
                             </tbody>
                         </table>
                     </div>
                 </div>
             </div>
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="table-tracking-main table-responsive">
+                            <table class="table table-bordered text-left table-primary">
+                                <thead>
+                                <tr>
+                                    <th>Loading Date</th>
+                                    <th>Estimate Arrive Date</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td><?=$shipment->loading_date?></td>
+                                    <td><?=$shipment->estimate_arrive_date?></td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
 
             <div class="row offset-2"><h6>Detail</h6></div>
             <div class="row">
