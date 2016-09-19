@@ -91,6 +91,8 @@ $this->title = 'Track now';
                     </div>
                 </div>
             </div>
+
+                <?php if($shipment->loading_date || $shipment->estimate_arrive_date):?>
                 <div class="row">
                     <div class="col-xs-12">
                         <div class="table-tracking-main table-responsive">
@@ -111,6 +113,7 @@ $this->title = 'Track now';
                         </div>
                     </div>
                 </div>
+                    <?php endif?>
 
             <div class="row offset-2"><h6>Detail</h6></div>
             <div class="row">
