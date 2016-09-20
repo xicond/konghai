@@ -117,61 +117,7 @@ $this->title = 'Track now';
                 </div>
                     <?php endif?>
 
-            <div class="row offset-2"><h6>Detail</h6></div>
-            <div class="row">
-                <div class="col-xs-12">
-                        <div class="table-tracking-detail table-responsive">
-                        <table class="table table-striped text-left table-dark">
-                            <thead>
-                            <tr>
-                                <th>Origin</th>
-                                <th>Destination</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <tr>
-                                <td><?=$shipment->from?></td>
-                                <td><?=$shipment->to?></td>
-                            </tr>
-                            <tr>
-                                <td><?=$shipment->address_from?></td>
-                                <td><?=$shipment->address_to?></td>
-                            </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
 
-            <div class="row offset-2"><h6>Tracker</h6></div>
-
-            <?php foreach($shipment->orderedShipmentCodes as $group):
-                    if(!$group->getTrackers()->exists())continue;
-            ?>
-            <div class="row">
-                <div class="col-xs-12">
-                    <div class="table-tracking-tracker table-responsive">
-                        <table class="table text-left table-light">
-                            <thead>
-                            <tr>
-                                <th colspan="3"><?=$group->type?></th>
-                            </tr>
-                            </thead>
-                            <tbody>
-
-                            <?php foreach($group->trackers as $track):?>
-                            <tr>
-                                <td><?=$track->track_date.' '.$track->track_time?></td>
-                                <td><?=$track->description?></td>
-                                <td><?=$track->status?></td>
-                            </tr>
-                            <?php endforeach?>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-            <?php endforeach?>
 
                 <?php elseif(Yii::$app->request->isPost):?>
                 <div class="alert alert-danger">
