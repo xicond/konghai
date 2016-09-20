@@ -13,22 +13,31 @@ use yii\widgets\ActiveForm;
     <?php $form = ActiveForm::begin([
         'id' => 'shipment-form',
         'enableAjaxValidation' => true,
-        'enableClientValidation' => false,
+        'enableClientValidation' => true,
     ]); ?>
 
-    <?= $form->field($model, 'from')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'receipt_date')->widget(\kartik\date\DatePicker::classname(), [
+        'options' => ['placeholder' => 'Select Receipt date ...'],
+        'value' => date('d-M-Y', strtotime('+2 days')),
+        'pluginOptions' => [
+            'format' => 'dd MM yyyy',
+            'todayHighlight' => true,
+            'autoclose'=>true,
+            'convertFormat'=>true
+        ]
+    ]); ?>
 
-    <?= $form->field($model, 'to')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'marking_code')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'address_to')->textInput(['maxlength' => true]) ?>
-
-    <?= $form->field($model, 'address_from')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'description')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'colly')->textInput(['type'=>'number', 'min'=>'1', 'step'=>'1', 'maxlength' => true]) ?>
 
     <?= $form->field($model, 'means')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'weight')->textInput(['type'=>'number', 'min'=>'0.01', 'step'=>'0.01', 'maxlength' => true]) ?>
+
+    <?= $form->field($model, 'resi')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'loading_date')->widget(\kartik\date\DatePicker::classname(), [
         'options' => ['placeholder' => 'Select loading date ...'],
@@ -63,8 +72,6 @@ use yii\widgets\ActiveForm;
 <!--    --><?php //= $form->field($model, 'input_time')->textInput() ?>
 
 <!--    --><?php //= $form->field($model, 'update_time')->textInput() ?>
-
-    <?= $form->field($model, 'description')->textInput(['maxlength' => true]) ?>
 
     <?php if($model->isNewRecord):?>
 

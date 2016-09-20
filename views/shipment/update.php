@@ -7,10 +7,10 @@ use yii\helpers\Html;
 
 $this->title = Yii::t('admin', 'Update {modelClass}: ', [
     'modelClass' => 'Shipment',
-]) . $model->id;
+]) . $model->marking_code;
 
 $this->params['breadcrumbs'][] = ['label' => Yii::t('admin', 'Shipments'), 'url' => ['index']];
-$this->params['breadcrumbs'][] = ['label' => Yii::t('admin', 'Shipment').' '.$model->id, 'url' => ['view', 'id' => $model->id]];
+$this->params['breadcrumbs'][] = ['label' => Yii::t('admin', 'Shipment').' '.$model->marking_code, 'url' => ['view', 'id' => $model->id]];
 $this->params['breadcrumbs'][] = Yii::t('admin', 'Update');
 ?>
 <div class="shipment-update">

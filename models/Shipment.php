@@ -61,6 +61,50 @@ class Shipment extends \yii\db\ActiveRecord
                 'value' => Yii::$app->user->id,
             ],
 
+            'receipt_date' => [
+                'class' => 'yii\behaviors\AttributeBehavior',
+                'attributes' => [
+                    ActiveRecord::EVENT_BEFORE_INSERT => ['receipt_date'],
+                    ActiveRecord::EVENT_BEFORE_UPDATE => ['receipt_date'],
+                ],
+                'value' => function (\yii\base\Event $event) {
+                    $parent = $event->sender;
+                    /**
+                     * @var $parent self
+                     */
+                    // if($parent->delete_time)
+
+                    $date = explode('-',$parent->receipt_date);
+                    if(count($date)==3 && strlen($date[0])==4 && strlen($date[1])<=2 && strlen($date[2])<=2 )
+                        return $parent->receipt_date;
+
+                    $result = date('Y-m-d',strtotime($parent->receipt_date));
+                    if($result == '1970-01-01') return NULL;
+                    return $result;
+                },
+            ],
+            'receipt_date_show' => [
+                'class' => 'yii\behaviors\AttributeBehavior',
+                'attributes' => [
+                    ActiveRecord::EVENT_AFTER_FIND => ['receipt_date'],
+                    ActiveRecord::EVENT_AFTER_REFRESH => ['receipt_date'],
+                ],
+                'value' => function (\yii\base\Event $event) {
+                    $parent = $event->sender;
+                    /**
+                     * @var $parent self
+                     */
+                    // if($parent->delete_time)
+                    if(!$parent->receipt_date)return;
+
+                    $date = explode('-',$parent->receipt_date);
+                    if(count($date)==3 && strlen($date[0])==4 && strlen($date[1])<=2 && strlen($date[2])<=2 )
+                        return date('d F Y',strtotime($parent->receipt_date));
+
+                    return $parent->receipt_date;
+                },
+            ],
+
             'loading_date' => [
                 'class' => 'yii\behaviors\AttributeBehavior',
                 'attributes' => [
@@ -184,13 +228,14 @@ class Shipment extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['from', 'to', 'address_from'], 'required'], //, 'input_by', 'input_time', 'update_time'
+//            [['from', 'to', 'address_from'], 'required'], //, 'input_by', 'input_time', 'update_time'
+            [['marking_code', 'receipt_date'], 'required'],
             [['input_by', 'update_by', 'colly'], 'integer'],
             [['history'], 'string'],
             [['input_time', 'update_time', 'loading_date', 'estimate_arrive_date'], 'safe'],
             [['weight'], 'number'],
             [['from', 'to'], 'string', 'max' => 50],
-            [['address_to', 'address_from', 'description'], 'string', 'max' => 255],
+            [['address_to', 'address_from', 'description', 'resi', 'marking_code'], 'string', 'max' => 255],
             [['means'], 'string', 'max' => 30],
         ];
     }
@@ -217,6 +262,9 @@ class Shipment extends \yii\db\ActiveRecord
             'weight' => Yii::t('db', 'Weight'),
             'loading_date' => Yii::t('db', 'Loading Date'),
             'estimate_arrive_date' => Yii::t('db', 'Estimate Arrive Date'),
+            'resi' => Yii::t('db', 'Resi'),
+            'marking_code' => Yii::t('db', 'Marking Code'),
+            'receipt_date' => Yii::t('db', 'Receipt Date'),
         ];
     }
 

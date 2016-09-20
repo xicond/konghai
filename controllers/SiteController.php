@@ -3,6 +3,7 @@
 namespace app\controllers;
 
 use app\models\Post;
+use app\models\Shipment;
 use app\models\ShipmentCode;
 use app\models\ShipmentCodeSearch;
 use app\models\TrackForm;
@@ -76,7 +77,12 @@ class SiteController extends Controller
 
         if(Yii::$app->request->isPost && $model->load(Yii::$app->request->post()) && $model->validate()){
 
-            $shipment = @ShipmentCodeSearch::findOne(array('code'=>Yii::$app->request->post('TrackForm')['code'], 'delete_time'=>null))->shipment;
+//            $shipment = @ShipmentCodeSearch::findOne(array('code'=>Yii::$app->request->post('TrackForm')['code'], 'delete_time'=>null))->shipment;
+
+            $shipment = Shipment::findOne(array('marking_code'=>Yii::$app->request->post('TrackForm')['code']));
+
+            if(!$shipment)
+                $shipment = Shipment::findOne(array('resi'=>Yii::$app->request->post('TrackForm')['code']));
 
             if(!$shipment) $shipment = false;
 

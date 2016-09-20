@@ -63,16 +63,16 @@ $this->title = 'Track now';
                         <table class="table table-bordered text-left table-primary">
                             <thead>
                             <tr>
-                                <th>Shipment</th>
-                                <th>Origin</th>
-                                <th>Destination</th>
+                                <th>Receipt Date</th>
+                                <th>Marking Code</th>
+                                <th>Description</th>
                             </tr>
                             </thead>
                             <tbody>
                             <tr>
-                                <td><?php if(($tracks = $shipment->trackers) && isset($tracks[0])) echo $tracks[0]->track_date.' '.$tracks[0]->track_time;else echo @$shipment->shipmentCodes[0]->code?></td>
-                                <td><?=$shipment->address_from?></td>
-                                <td><?=$shipment->address_to?></td>
+                                <td><?php echo $shipment->receipt_date;?></td>
+                                <td><?=$shipment->marking_code?></td>
+                                <td><?=$shipment->description?></td>
                             </tr>
                             <?php if($shipment->colly || $shipment->means || $shipment->weight):?>
                             <tr>
@@ -92,19 +92,21 @@ $this->title = 'Track now';
                 </div>
             </div>
 
-                <?php if($shipment->loading_date || $shipment->estimate_arrive_date):?>
+                <?php if($shipment->resi || $shipment->loading_date || $shipment->estimate_arrive_date):?>
                 <div class="row">
                     <div class="col-xs-12">
                         <div class="table-tracking-main table-responsive">
                             <table class="table table-bordered text-left table-primary">
                                 <thead>
                                 <tr>
+                                    <th>Resi</th>
                                     <th>Loading Date</th>
                                     <th>Estimate Arrive Date</th>
                                 </tr>
                                 </thead>
                                 <tbody>
                                 <tr>
+                                    <td><?=$shipment->resi?></td>
                                     <td><?=$shipment->loading_date?></td>
                                     <td><?=$shipment->estimate_arrive_date?></td>
                                 </tr>
@@ -170,6 +172,12 @@ $this->title = 'Track now';
                 </div>
             </div>
             <?php endforeach?>
+
+                <?php elseif(Yii::$app->request->isPost):?>
+                <div class="alert alert-danger">
+                    Sorry The code didn't found
+                </div>
+
 
             <?php endif?>
 

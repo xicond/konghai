@@ -6,7 +6,7 @@ use yii\widgets\DetailView;
 /* @var $this yii\web\View */
 /* @var $model app\models\Shipment */
 
-$this->title = Yii::t('admin', 'Detail Shipment').' '.$model->id;
+$this->title = Yii::t('admin', 'Detail Shipment').' '.$model->marking_code;
 $this->params['breadcrumbs'][] = ['label' => Yii::t('admin', 'Shipments'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
@@ -28,12 +28,16 @@ $this->params['breadcrumbs'][] = $this->title;
     <?= DetailView::widget([
         'model' => $model,
         'attributes' => [
-            'id',
-            'from',
-            'to',
-            'address_to',
-            'address_from',
+//            'id',
+//            'from',
+//            'to',
+//            'address_to',
+//            'address_from',
+            'receipt_date',
+            'marking_code',
+            'description',
             'colly',
+            'means',
             'weight',
             'loading_date',
             'estimate_arrive_date',
@@ -42,24 +46,23 @@ $this->params['breadcrumbs'][] = $this->title;
 //            'history:ntext',
 //            'input_time',
 //            'update_time',
-            'description',
         ],
     ]) ?>
 
-    <p>
-    <?= Html::a(Yii::t('admin', 'Add Shipment Code'), ['shipment-code/create', 'sid'=>$model->id], ['class' => 'btn btn-success']) ?>
-    </p>
-
-    <?= $this->render('_view_code', [
-        'model' => $model_code,
-    ]) ?>
-
-    <p>
-    <?= Html::a(Yii::t('admin', 'Add Tracking'), ['tracker/create', 'sid'=>$model->id], ['class' => 'btn btn-success']) ?>
-    </p>
-
-    <?= $this->render('_view_tracker', [
-        'model' => $model_tracker,
-    ]) ?>
+<!--    <p>-->
+<!--    --><?//= Html::a(Yii::t('admin', 'Add Shipment Code'), ['shipment-code/create', 'sid'=>$model->id], ['class' => 'btn btn-success']) ?>
+<!--    </p>-->
+<!---->
+<!--    --><?//= $this->render('_view_code', [
+//        'model' => $model_code,
+//    ]) ?>
+<!---->
+<!--    <p>-->
+<!--    --><?//= Html::a(Yii::t('admin', 'Add Tracking'), ['tracker/create', 'sid'=>$model->id], ['class' => 'btn btn-success']) ?>
+<!--    </p>-->
+<!---->
+<!--    --><?//= $this->render('_view_tracker', [
+//        'model' => $model_tracker,
+//    ]) ?>
 
 </div>
