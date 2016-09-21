@@ -63,17 +63,7 @@ use yii\widgets\ActiveForm;
     ]); ?>
 
 
-    <!--    --><?php //= $form->field($model, 'input_by')->textInput() ?>
-
-<!--    --><?php //= $form->field($model, 'update_by')->textInput() ?>
-
-<!--    --><?php //= $form->field($model, 'history')->textarea(['rows' => 6]) ?>
-
-<!--    --><?php //= $form->field($model, 'input_time')->textInput() ?>
-
-<!--    --><?php //= $form->field($model, 'update_time')->textInput() ?>
-
-    <?php if($model->isNewRecord):?>
+    <?php if(false):$model->isNewRecord?>
 
         <?php echo $this->render('_form_code', [
             'model' => $model_code,
@@ -88,12 +78,12 @@ use yii\widgets\ActiveForm;
     </div>
 
     <?php ActiveForm::end();
-    $script = <<<'JS'
-        $('#shipment-form').yiiActiveForm('add',{"id":"shipmentcode-code","name":"code","container":".field-shipmentcode-code","input":"#shipmentcode-code","enableAjaxValidation":true});
-        $('#shipment-form').yiiActiveForm('add',{"id":"shipmentcode-type","name":"type","container":".field-shipmentcode-type","input":"#shipmentcode-type","enableAjaxValidation":true});
-JS;
-
-    $this->registerJs( $script , \yii\web\View::POS_READY, 'my-options');
+//    $script = <<<'JS'
+//        $('#shipment-form').yiiActiveForm('add',{"id":"shipmentcode-code","name":"code","container":".field-shipmentcode-code","input":"#shipmentcode-code","enableAjaxValidation":true});
+//        $('#shipment-form').yiiActiveForm('add',{"id":"shipmentcode-type","name":"type","container":".field-shipmentcode-type","input":"#shipmentcode-type","enableAjaxValidation":true});
+//JS;
+//
+//    $this->registerJs( $script , \yii\web\View::POS_READY, 'my-options');
 
     ?>
 

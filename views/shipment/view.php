@@ -49,20 +49,5 @@ $this->params['breadcrumbs'][] = $this->title;
         ],
     ]) ?>
 
-<!--    <p>-->
-<!--    --><?//= Html::a(Yii::t('admin', 'Add Shipment Code'), ['shipment-code/create', 'sid'=>$model->id], ['class' => 'btn btn-success']) ?>
-<!--    </p>-->
-<!---->
-<!--    --><?//= $this->render('_view_code', [
-//        'model' => $model_code,
-//    ]) ?>
-<!---->
-<!--    <p>-->
-<!--    --><?//= Html::a(Yii::t('admin', 'Add Tracking'), ['tracker/create', 'sid'=>$model->id], ['class' => 'btn btn-success']) ?>
-<!--    </p>-->
-<!---->
-<!--    --><?//= $this->render('_view_tracker', [
-//        'model' => $model_tracker,
-//    ]) ?>
 
 </div>
