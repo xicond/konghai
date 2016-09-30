@@ -113,11 +113,10 @@ class ShipmentController extends Controller
 
                 if ($model_code->load(Yii::$app->request->post()) && ($model_code->shipment_id = $model->id) && $model_code->save()) {
 
-                    $transaction->commit();
-                    return $this->redirect(['view', 'id' => $model->id]);
 
                 }
-                $transaction->rollBack();
+                $transaction->commit();
+                return $this->redirect(['view', 'id' => $model->id]);
 
             } //else {
                 return $this->render('create', [
