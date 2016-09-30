@@ -233,7 +233,7 @@ class Shipment extends \yii\db\ActiveRecord
             [['input_by', 'update_by', 'colly'], 'integer'],
             [['history'], 'string'],
             [['input_time', 'update_time', 'loading_date', 'estimate_arrive_date'], 'safe'],
-            [['weight'], 'number', 'max' => 99.99],
+            [['weight'], 'number', 'max' => 99.99, 'skipOnEmpty' => true],
             [['from', 'to'], 'string', 'max' => 50],
             [['address_to', 'address_from', 'description', 'resi', 'marking_code'], 'string', 'max' => 255],
             [['means'], 'string', 'max' => 30],
