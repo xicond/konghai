@@ -32,11 +32,21 @@ class TrackForm extends Model
     public function validateCode($attribute, $params)
     {
         if (!$this->hasErrors()) {
-            $shipmentcode = ShipmentCode::findOne(array('code'=>$this->$attribute, 'delete_time'=>null));
+//            $shipmentcode = ShipmentCode::findOne(array('code'=>$this->$attribute, 'delete_time'=>null));
+            $shipment = Shipment::findOne(array('marking_code'=>Yii::$app->request->post('TrackForm')['code']));
 
-            if (empty($shipmentcode)) {
-                $this->addError($attribute, Yii::t('app', 'Shipment Code might be wrong, it\'s not available on our system'));
+            if(!$shipment)
+            {
+                $shipment = Shipment::findOne(array('resi'=>Yii::$app->request->post('TrackForm')['code']))->;
+
+                if (empty($shipment)) {
+                    $this->addError($attribute, Yii::t('app', 'Shipment Code might be wrong, it\'s not available on our system'));
+                }
             }
+
+//            if (empty($shipmentcode)) {
+//                $this->addError($attribute, Yii::t('app', 'Shipment Code might be wrong, it\'s not available on our system'));
+//            }
         }
     }
 
