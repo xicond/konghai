@@ -33,11 +33,11 @@ class TrackForm extends Model
     {
         if (!$this->hasErrors()) {
 //            $shipmentcode = ShipmentCode::findOne(array('code'=>$this->$attribute, 'delete_time'=>null));
-            $shipment = Shipment::findOne(array('marking_code'=>$this->$attribute);
+            $shipment = Shipment::findOne(array('marking_code'=>$this->$attribute));
 
             if(!$shipment)
             {
-                $shipment = Shipment::findOne(array('resi'=>$this->$attribute)->;
+                $shipment = Shipment::findOne(array('resi'=>$this->$attribute));
 
                 if (empty($shipment)) {
                     $this->addError($attribute, Yii::t('app', 'Shipment Code might be wrong, it\'s not available on our system'));
