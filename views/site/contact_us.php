@@ -107,7 +107,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                             foreach($adminPhones as $admin=>$phone):$i++;?>
                                                 ?>
                                                 <dt>Phone <?=$i?>:</dt>
-                                                <dd><a href="callto:<?= preg_replace('@[^0-9]@','',$phone)?>"><?=phone?> (<?=$admin?>)</a></dd>
+                                                <dd><a href="callto:<?= preg_replace('@[^0-9]@','',$phone)?>"><?=$phone?> (<?=$admin?>)</a></dd>
                                             <?php endforeach;endif?>
                                     </dl>
                                 </div>
