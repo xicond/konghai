@@ -102,7 +102,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                         <dt>Phone:</dt>
                                         <dd><a href="callto:<?= preg_replace('@[^0-9]@','',Yii::$app->params['callCenter'])?>"><?= Yii::$app->params['callCenter']?></a></dd>
 
-                                        <?php if(isset(Yii::$app->params['adminPhones'])):
+                                        <?php if(isset(Yii::$app->params['adminPhones'])):$i=0;
                                             $adminPhones = (array)Yii::$app->params['adminPhones'];
                                             foreach($adminPhones as $admin=>$phone):$i++;?>
                                                 ?>

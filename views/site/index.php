@@ -324,7 +324,7 @@ $this->title = 'Konghai';
                                         <dd><a href="callto:<?= preg_replace('@[^0-9]@','',Yii::$app->params['callCenter'])?>"><?= Yii::$app->params['callCenter']?></a></dd>
 
                                         <?php if(isset(Yii::$app->params['adminPhones'])):
-                                            $adminPhones = (array)Yii::$app->params['adminPhones'];
+                                            $adminPhones = (array)Yii::$app->params['adminPhones'];$i=0;
                                             foreach($adminPhones as $admin=>$phone):$i++;?>
                                             ?>
                                         <dt>Phone <?=$i?>:</dt>
