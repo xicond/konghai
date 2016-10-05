@@ -101,8 +101,14 @@ $this->params['breadcrumbs'][] = $this->title;
                                     <dl class="dl-horizontal">
                                         <dt>Phone:</dt>
                                         <dd><a href="callto:<?= preg_replace('@[^0-9]@','',Yii::$app->params['callCenter'])?>"><?= Yii::$app->params['callCenter']?></a></dd>
-                                        <!--<dt>FAX:</dt>
-                                        <dd><a href="callto:#">+1 800 889 9898</a></dd>-->
+
+                                        <?php if(isset(Yii::$app->params['adminPhones'])):
+                                            $adminPhones = (array)Yii::$app->params['adminPhones'];
+                                            foreach($adminPhones as $admin=>$phone):$i++;?>
+                                                ?>
+                                                <dt>Phone <?=$i?>:</dt>
+                                                <dd><a href="callto:<?= preg_replace('@[^0-9]@','',$phone)?>"><?=phone?> (<?=$admin?>)</a></dd>
+                                            <?php endforeach;endif?>
                                     </dl>
                                 </div>
                             </div>

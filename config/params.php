@@ -3,6 +3,9 @@
 return [
     'adminEmail' => 'info@konghai.com',
     'callCenter' => '( 021 ) 55957980',
+    'adminPhones' => [
+        'Lina Amelia (Direktur)' => '081280936126',
+        'Santy (Marketing)' => '085217985999',],
     'avoid_slug' => ['contact_us', 'contact',
         'about_us', 'about',
         'blog', 'blogs',
