@@ -37,8 +37,6 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'weight')->textInput(['type'=>'number', 'min'=>'0.01', 'step'=>'0.01', 'maxlength' => true]) ?>
 
-    <?= $form->field($model, 'resi')->textInput(['maxlength' => true]) ?>
-
     <?= $form->field($model, 'loading_date')->widget(\kartik\date\DatePicker::classname(), [
         'options' => ['placeholder' => 'Select loading date ...'],
         'value' => date('d-M-Y', strtotime('+2 days')),

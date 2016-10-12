@@ -27,7 +27,6 @@ $this->params['breadcrumbs'][] = $this->title;
 //            'id',
             'marking_code',
             'receipt_date',
-            'resi',
             'loading_date',
 //            'input_by',
             // 'update_by',

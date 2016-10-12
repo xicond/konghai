@@ -92,21 +92,19 @@ $this->title = 'Track now';
                 </div>
             </div>
 
-                <?php if($shipment->resi || $shipment->loading_date || $shipment->estimate_arrive_date):?>
+                <?php if($shipment->loading_date || $shipment->estimate_arrive_date):?>
                 <div class="row">
                     <div class="col-xs-12">
                         <div class="table-tracking-main table-responsive">
                             <table class="table table-bordered text-left table-primary">
                                 <thead>
                                 <tr>
-                                    <th>Resi</th>
                                     <th>Loading Date</th>
                                     <th>Estimate Arrive Date</th>
                                 </tr>
                                 </thead>
                                 <tbody>
                                 <tr>
-                                    <td><?=$shipment->resi?></td>
                                     <td><?=$shipment->loading_date?></td>
                                     <td><?=$shipment->estimate_arrive_date?></td>
                                 </tr>

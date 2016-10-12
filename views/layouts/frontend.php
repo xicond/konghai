@@ -76,17 +76,29 @@ AppAsset::register($this);
                 <div class="rd-navbar-top-panel">
                     <div class="rd-navbar-inner">
                         <button data-rd-navbar-toggle=".list-inline" type="submit" class="rd-navbar-collapse-toggle"><span></span></button>
-                        <a href="mailto:#" class="fa-envelope-o text-slim"><?= Yii::$app->params['adminEmail']?></a>
-                        <a href="callto:#" class="fa-mobile-phone preffix-2 text-slim"><?= Yii::$app->params['callCenter']?></a>
-                        <ul class="list-inline pull-right social">
+                        <a href="mailto:<?= Yii::$app->params['adminEmail']?>" class="fa-envelope-o text-slim"><?= Yii::$app->params['adminEmail']?></a>
+                        <a href="callto:<?= preg_replace('@[^0-9]@','',Yii::$app->params['callCenter'])?>" class="fa-mobile-phone preffix-2 text-slim"><?= Yii::$app->params['callCenter']?></a>
+                        <?php if(isset(Yii::$app->params['adminPhones'])):$i=0;
+                            $adminPhones = (array)Yii::$app->params['adminPhones'];
+                            foreach($adminPhones as $admin=>$phone):$i++;?>
+                                <a class="fa-mobile-phone preffix-2 text-slim" href="callto:<?= preg_replace('@[^0-9]@','',$phone)?>"><?=$phone?> (<?=$admin?>)</a></li>
+                            <?php endforeach;endif?>
+
+                        <ul class="list-inline pull-right social" style="max-width: 20%;">
                             <li><a href="#" class="fa-facebook"></a></li>
                             <li><a href="#" class="fa-twitter"></a></li>
                             <li><a href="#" class="fa-pinterest-p"></a></li>
                             <li><a href="#" class="fa-vimeo"></a></li>
                             <li><a href="#" class="fa-google-plus"></a></li>
                             <li><a href="#" class="fa-rss"></a></li>
-                            <li class="text-left"><a href="mailto:#" class="fa-envelope-o text-slim"><?= Yii::$app->params['adminEmail']?></a></li>
-                            <li class="text-left"><a href="callto:#" class="fa-mobile-phone text-slim"><?= Yii::$app->params['callCenter']?></a></li>
+                            <li class="text-left"><a href="mailto:<?= Yii::$app->params['adminEmail']?>" class="fa-envelope-o text-slim"><?= Yii::$app->params['adminEmail']?></a></li>
+                            <li class="text-left"><a href="callto:<?= preg_replace('@[^0-9]@','',Yii::$app->params['callCenter'])?>" class="fa-mobile-phone text-slim"><?= Yii::$app->params['callCenter']?></a></li>
+                            <?php if(isset(Yii::$app->params['adminPhones'])):$i=0;
+                                $adminPhones = (array)Yii::$app->params['adminPhones'];
+                                foreach($adminPhones as $admin=>$phone):$i++;?>
+                                    <li class="text-left"><a class="fa-mobile-phone text-slim" href="callto:<?= preg_replace('@[^0-9]@','',$phone)?>"><?=$phone?><br/><?=$admin?></a></li>
+                                <?php endforeach;endif?>
+
                         </ul>
                     </div>
                 </div>
