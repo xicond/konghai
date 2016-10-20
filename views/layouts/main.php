@@ -9,7 +9,16 @@ use yii\bootstrap\NavBar;
 use yii\widgets\Breadcrumbs;
 use app\assets\AppAsset;
 
-AppAsset::register($this);
+class BackendAsset extends AppAsset
+{
+    public $depends = [
+        'yii\web\YiiAsset',
+        'yii\bootstrap\BootstrapAsset',
+        'yii\jui\JuiAsset',
+    ];
+}
+
+BackendAsset::register($this);
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>

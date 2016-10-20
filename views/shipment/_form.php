@@ -12,18 +12,21 @@ use yii\widgets\ActiveForm;
 
     <?php $form = ActiveForm::begin([
         'id' => 'shipment-form',
-        'enableAjaxValidation' => true,
+//        'enableAjaxValidation' => true,
         'enableClientValidation' => true,
     ]); ?>
 
-    <?= $form->field($model, 'receipt_date')->widget(\kartik\date\DatePicker::classname(), [
-        'options' => ['placeholder' => 'Select Receipt date ...'],
-        'value' => date('d-M-Y', strtotime('+2 days')),
-        'pluginOptions' => [
-            'format' => 'dd MM yyyy',
-            'todayHighlight' => true,
-            'autoclose'=>true,
-            'convertFormat'=>true
+    <?= $form->field($model, 'receipt_date')->widget(\dosamigos\datepicker\DatePicker::className(), [
+//        'attributeTo' => 'receipt_date',
+//        'form' => $form, // best for correct client validation
+//        'language' => 'en',
+//        'inline' => true,
+        'addon' => false,
+        'template' => '{input}',
+        'size' => 'lg',
+        'clientOptions' => [
+            'autoclose' => true,
+            'dateFormat' => 'dd MM yy'
         ]
     ]); ?>
 
@@ -37,28 +40,30 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'weight')->textInput(['type'=>'number', 'min'=>'0.01', 'step'=>'0.01', 'maxlength' => true]) ?>
 
-    <?= $form->field($model, 'loading_date')->widget(\kartik\date\DatePicker::classname(), [
-        'options' => ['placeholder' => 'Select loading date ...'],
-        'value' => date('d-M-Y', strtotime('+2 days')),
-        'pluginOptions' => [
-            'format' => 'dd MM yyyy',
-            'todayHighlight' => true,
-            'autoclose'=>true,
-            'convertFormat'=>true
-        ]
-    ]); ?>
+    <?= $form->field($model, 'loading_date')->widget(\dosamigos\datepicker\DatePicker::className(), [
+//        'attributeTo' => 'loading_date',
+//        'form' => $form, // best for correct client validation
+//        'language' => 'en',
+        'addon' => false,
+        'template' => '{input}',
+        'size' => 'lg',
+        'clientOptions' => [
+            'autoclose' => true,
+            'dateFormat' => 'dd MM yy'
+        ]]); ?>
 
 
-    <?= $form->field($model, 'estimate_arrive_date')->widget(\kartik\date\DatePicker::classname(), [
-        'options' => ['placeholder' => 'Select date ...'],
-        'value' => date('d-M-Y', strtotime('+2 days')),
-        'pluginOptions' => [
-            'format' => 'dd MM yyyy',
-            'todayHighlight' => true,
-            'autoclose'=>true,
-            'convertFormat'=>true
-        ]
-    ]); ?>
+    <?= $form->field($model, 'estimate_arrive_date')->widget(\dosamigos\datepicker\DatePicker::className(), [
+//        'attributeTo' => 'loading_date',
+//        'form' => $form, // best for correct client validation
+//        'language' => 'en',
+        'addon' => false,
+        'template' => '{input}',
+        'size' => 'lg',
+        'clientOptions' => [
+            'autoclose' => true,
+            'dateFormat' => 'dd MM yy'
+        ]]); ?>
 
 
     <?php if(false):$model->isNewRecord?>
@@ -84,5 +89,28 @@ use yii\widgets\ActiveForm;
 //    $this->registerJs( $script , \yii\web\View::POS_READY, 'my-options');
 
     ?>
+
+    <?php
+    if($model->isNewRecord)
+    $this->registerJs('
+
+
+
+$("#'.Html::getInputId($model, 'marking_code').'").change(function(){
+    if($(this).val() && $("#'.Html::getInputId($model, 'receipt_date').'").val()){
+
+        var receipt = new Date($("#'.Html::getInputId($model, 'receipt_date').'"). datepicker("getDate"));
+        if(/\bsea\b/i.test($(this).val())){
+            receipt.setMonth(receipt.getMonth() + 1);
+            $("#'.Html::getInputId($model, 'estimate_arrive_date').'"). val( $.datepicker.formatDate("dd MM yy", receipt));
+        }else if(/\bair\b/i.test($(this).val())){
+            receipt.setDate(receipt.getDate() + 7);
+            $("#'.Html::getInputId($model, 'estimate_arrive_date').'"). val( $.datepicker.formatDate("dd MM yy", receipt));
+        }
+
+    }
+});
+
+', \yii\web\View::POS_READY, 'estimate_arrive');?>
 
 </div>

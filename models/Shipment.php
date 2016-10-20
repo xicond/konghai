@@ -23,6 +23,7 @@ use yii\db\ActiveRecord;
  * @property string $means
  * @property string $weight
  * @property string $loading_date
+ * @property string $marking_code
  * @property string $estimate_arrive_date
  *
  * @property ShipmentCode[] $shipmentCodes
@@ -168,6 +169,30 @@ class Shipment extends \yii\db\ActiveRecord
                     $result = date('Y-m-d',strtotime($parent->estimate_arrive_date));
                     if($result == '1970-01-01') return NULL;
                     return $result;
+                },
+            ],
+            'estimate_arrive_date' => [
+                'class' => 'yii\behaviors\AttributeBehavior',
+                'attributes' => [
+                    ActiveRecord::EVENT_BEFORE_INSERT => ['estimate_arrive_date'],
+                ],
+                'value' => function (\yii\base\Event $event) {
+                    $parent = $event->sender;
+                    /**
+                     * @var $parent self
+                     */
+                    // if($parent->delete_time)
+
+                    if($parent->estimate_arrive_date == '1970-01-01' || is_null($parent->estimate_arrive_date) || $parent->estimate_arrive_date=='')
+                    {
+                        if(preg_match('@\bsea\b@i',$parent->marking_code)){
+                            $parent->estimate_arrive_date = date('Y-m-d',strtotime("+1 month"));
+                        }
+                        elseif(preg_match('@\bair\b@i',$parent->marking_code)){
+                            $parent->estimate_arrive_date = date('Y-m-d',strtotime("+7 day"));
+                        }
+                    }
+                    return $parent->estimate_arrive_date;
                 },
             ],
             'estimate_arrive_date_show' => [
