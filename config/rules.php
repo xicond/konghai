@@ -13,7 +13,8 @@ $rules = [
         'pattern' => '<action:(track|contact_us)>',
         'route' => 'site/<action>',
         'suffix' => '.php',
-        'mode' => 1
+        'mode' => 1,
+        'headers' => ['X-Robots-Tag' => 'noindex']
 
     ],
     [

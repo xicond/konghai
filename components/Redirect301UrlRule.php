@@ -11,7 +11,7 @@ use yii\web\UrlRule;
 
 class Redirect301UrlRule extends UrlRule
 {
-
+    public $headers = [];
     public function createUrl($manager, $route, $params)
     {
         // Parse_ONLY
@@ -47,6 +47,13 @@ class Redirect301UrlRule extends UrlRule
             }
 
             if ($result) {
+                if(!empty($this->headers)) {
+                    foreach($this->headers as $key=>$header) {
+                        if(!Yii::$app->response->headers->has($key)) {
+                            Yii::$app->response->headers->add($key,$header);
+                        }
+                    }
+                }
                 Yii::$app->response->redirect(array_merge([$result[0]],$params),301);
                 Yii::$app->end();
             }
