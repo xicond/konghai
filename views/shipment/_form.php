@@ -12,7 +12,7 @@ use yii\widgets\ActiveForm;
 
     <?php $form = ActiveForm::begin([
         'id' => 'shipment-form',
-//        'enableAjaxValidation' => true,
+        'enableAjaxValidation' => true,
         'enableClientValidation' => true,
     ]); ?>
 
