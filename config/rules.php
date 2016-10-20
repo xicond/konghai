@@ -8,6 +8,15 @@
 
 $rules = [
     [
+        'class'=>'app\components\Redirect301UrlRule',
+        'verb' => 'GET',
+        'pattern' => '<action:(track|contact_us)>',
+        'route' => 'site/<action>',
+        'suffix' => '.php',
+        'mode' => 1
+
+    ],
+    [
         'verb' => 'POST',
         'pattern' => '<action:(track|contact_us)>',
         'route' => 'site/<action>',
