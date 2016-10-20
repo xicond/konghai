@@ -6,6 +6,7 @@ use app\models\Post;
 use app\models\Shipment;
 use app\models\ShipmentCode;
 use app\models\ShipmentCodeSearch;
+use app\models\ShipmentQuery;
 use app\models\TrackForm;
 use Yii;
 use yii\filters\AccessControl;
@@ -79,12 +80,15 @@ class SiteController extends Controller
 
 //            $shipment = @ShipmentCodeSearch::findOne(array('code'=>Yii::$app->request->post('TrackForm')['code'], 'delete_time'=>null))->shipment;
 
-            $shipment = Shipment::findOne(array('marking_code'=>Yii::$app->request->post('TrackForm')['code']));
+            $shipments = Shipment::find(array('marking_code'=>Yii::$app->request->post('TrackForm')['code']));
 
-            if(!$shipment)
-                $shipment = Shipment::findOne(array('resi'=>Yii::$app->request->post('TrackForm')['code']));
+            if(!$shipments->count())
+                $shipments = Shipment::find(array('resi'=>Yii::$app->request->post('TrackForm')['code']));
 
-            if(!$shipment) $shipment = false;
+            if(!$shipments->count()) $shipment = false;
+            else{
+                $shipment = $shipments->orderBy(['update_time' => SORT_ASC])->one();
+            }
 
         }
 
@@ -115,7 +119,7 @@ class SiteController extends Controller
 
         return $this->goHome();
     }
-
+    // HACK dirty css
     public function actionContact_us()
     {
         $model = new ContactForm;
