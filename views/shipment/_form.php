@@ -23,7 +23,7 @@ use yii\widgets\ActiveForm;
 //        'inline' => true,
         'addon' => false,
         'template' => '{input}',
-        'size' => 'lg',
+//        'size' => 'lg',
         'clientOptions' => [
             'autoclose' => true,
             'dateFormat' => 'dd MM yy'
@@ -46,7 +46,7 @@ use yii\widgets\ActiveForm;
 //        'language' => 'en',
         'addon' => false,
         'template' => '{input}',
-        'size' => 'lg',
+//        'size' => 'lg',
         'clientOptions' => [
             'autoclose' => true,
             'dateFormat' => 'dd MM yy'
@@ -59,7 +59,7 @@ use yii\widgets\ActiveForm;
 //        'language' => 'en',
         'addon' => false,
         'template' => '{input}',
-        'size' => 'lg',
+//        'size' => 'lg',
         'clientOptions' => [
             'autoclose' => true,
             'dateFormat' => 'dd MM yy'
