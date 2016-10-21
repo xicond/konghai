@@ -16,12 +16,12 @@ $("#'.Html::getInputId($model, 'marking_code').'").change(function(){
     if($(this).val() && $("#'.Html::getInputId($model, 'receipt_date').'").val()){
 
         var receipt = new Date($("#'.Html::getInputId($model, 'receipt_date').'"). datepicker("getDate"));
-        if(/\bsea\b/i.test($(this).val())){
+        if(/\bsea\b/i.test($(this).val()) && $("#'.Html::getInputId($model, 'estimate_arrive_date').'").data("auto")){
             receipt.setMonth(receipt.getMonth() + 1);
-            $("#'.Html::getInputId($model, 'estimate_arrive_date').'"). val( $.datepicker.formatDate("dd MM yy", receipt));
+            $("#'.Html::getInputId($model, 'estimate_arrive_date').'").data("auto",true). val( $.datepicker.formatDate("dd MM yy", receipt));
         }else if(/\bair\b/i.test($(this).val())){
             receipt.setDate(receipt.getDate() + 7);
-            $("#'.Html::getInputId($model, 'estimate_arrive_date').'"). val( $.datepicker.formatDate("dd MM yy", receipt));
+            $("#'.Html::getInputId($model, 'estimate_arrive_date').'").data("auto",true). val( $.datepicker.formatDate("dd MM yy", receipt));
         }
 
     }
@@ -67,17 +67,23 @@ $("#'.Html::getInputId($model, 'marking_code').'").change(function(){
                 $.getJSON('".\yii\helpers\Url::to('index')."', {
                     'ShipmentSearch[marking_code]': request.term
                 }, function( data, status, xhr ) {
-                      var result = {};
-                      for(k in data)
-                      {
+                    var result = {};
+                    for(k in data)
+                    {
                         result[k] = {};
                         result[k].value = data[k].marking_code;
                         result[k].label = data[k].marking_code;
-                      }
-                      cache[ term ] = result;
-                      response( result );
+                    }
+                    cache[ term ] = result;
+                    response( result );
+
                 });
             }"),
+            'select'=>new \yii\web\JsExpression('
+                function( event, ui ) {
+                    $("#'.Html::getInputId($model, 'marking_code').'").trigger("change");
+
+            }'),
         ],
     ]) ?>
 
