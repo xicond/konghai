@@ -30,7 +30,28 @@ use yii\widgets\ActiveForm;
         ]
     ]); ?>
 
-    <?= $form->field($model, 'marking_code')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'marking_code')->widget(\yii\jui\AutoComplete::classname(), [
+        'options' => [ 'class' => 'form-control' ],
+        'clientOptions' => [
+            'source'=>new \yii\web\JsExpression("
+
+            function(request, response) {
+                var term = request.term;
+                if ( term in cache ) {
+                  response( cache[ term ] );
+                  return;
+                }
+                $.getJSON('".\yii\helpers\Url::to('shipment/index')."', {
+                    ShipmentSearch[marking_code]: request.term
+                }, function( data, status, xhr ) {
+                      for(k in data)
+                        result[k] = data.marking_code;
+                      cache[ term ] = result;
+                      response( result );
+                });
+            }"),
+        ],
+    ]) ?>
 
     <?= $form->field($model, 'description')->textInput(['maxlength' => true]) ?>
 

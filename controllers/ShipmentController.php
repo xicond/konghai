@@ -63,6 +63,11 @@ class ShipmentController extends Controller
         $searchModel = new ShipmentSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
+        if(Yii::$app->request->isAjax) {
+            Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
+            return $dataProvider->query->all();
+        }
+
         return $this->render('index', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
