@@ -15,13 +15,13 @@ class ShipmentSearch extends Shipment
     /**
      * @inheritdoc
      */
-    public function rules()
-    {
-        return [
-            [['id', 'input_by', 'update_by'], 'integer'],
-            [['from', 'to', 'address_to', 'history', 'input_time', 'update_time', 'description', 'address_from'], 'safe'],
-        ];
-    }
+//    public function rules()
+//    {
+//        return [
+//            [['id', 'input_by', 'update_by'], 'integer'],
+//            [['from', 'to', 'address_to', 'history', 'input_time', 'update_time', 'description', 'address_from'], 'safe'],
+//        ];
+//    }
 
     /**
      * @inheritdoc
