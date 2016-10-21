@@ -209,7 +209,7 @@ class Shipment extends \yii\db\ActiveRecord
                     // if($parent->delete_time)
                     if(!$parent->estimate_arrive_date|| $parent->estimate_arrive_date=='0000-00-00')return;
 
-                    $date = explode('-',$parent->estimate_arrive_date);die(json_encode($date));
+                    $date = explode('-',$parent->estimate_arrive_date);//die(json_encode($date));
                     if(count($date)==3 && strlen($date[0])==4 && strlen($date[1])<=2 && strlen($date[2])<=2 )
                         return date('d F Y',strtotime($parent->estimate_arrive_date));
 
