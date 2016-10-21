@@ -102,7 +102,7 @@ a.desc:after {
 }
 
 .ui-autocomplete {
-    max-height: 100px;
+    max-height: 160px;
     overflow-y: auto;
     /* prevent horizontal scrollbar */
     overflow-x: hidden;
