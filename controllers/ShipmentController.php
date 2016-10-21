@@ -65,7 +65,7 @@ class ShipmentController extends Controller
 
         if(Yii::$app->request->isAjax && Yii::$app->request->isGet) {
             Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
-            return $dataProvider->query->all();
+            return $dataProvider->query->limit(15)->all();
         }
 
         return $this->render('index', [
