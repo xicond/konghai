@@ -254,7 +254,8 @@ class Shipment extends \yii\db\ActiveRecord
     {
         return [
 //            [['from', 'to', 'address_from'], 'required'], //, 'input_by', 'input_time', 'update_time'
-            [['marking_code', 'receipt_date'], 'required'],
+            [['marking_code', 'receipt_date'], 'required', 'on' => self::SCENARIO_DEFAULT],
+            [['marking_code'], 'required', 'on' => 'search'],
             [['input_by', 'update_by', 'colly'], 'integer'],
             [['history'], 'string'],
             [['input_time', 'update_time', 'loading_date', 'estimate_arrive_date'], 'safe'],

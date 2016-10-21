@@ -50,6 +50,7 @@ class ShipmentSearch extends Shipment
         ]);
 
         $this->load($params);
+        $this->setScenario('search');
 
         if (!$this->validate()) {
             // uncomment the following line if you do not want to return any records when validation fails
@@ -69,8 +70,7 @@ class ShipmentSearch extends Shipment
         $query->andFilterWhere(['like', 'from', $this->from])
             ->andFilterWhere(['like', 'to', $this->to])
             ->andFilterWhere(['like', 'address_to', $this->address_to])
-            ->andFilterWhere(['like', 'history', $this->history])
-            ->andFilterWhere(['like', 'description', $this->description])
+            ->andFilterWhere(['like', 'marking_code', $this->marking_code])
             ->andFilterWhere(['like', 'address_from', $this->address_from]);
 
         return $dataProvider;
