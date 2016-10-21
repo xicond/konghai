@@ -64,7 +64,7 @@ $("#'.Html::getInputId($model, 'marking_code').'").change(function(){
                   response( cache[ term ] );
                   return;
                 }
-                $.getJSON('".\yii\helpers\Url::to('shipment/index')."', {
+                $.getJSON('".\yii\helpers\Url::to('index')."', {
                     'ShipmentSearch[marking_code]': request.term
                 }, function( data, status, xhr ) {
                       for(k in data)
