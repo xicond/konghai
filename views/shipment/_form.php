@@ -18,13 +18,20 @@ $("#'.Html::getInputId($model, 'marking_code').'").change(function(){
         var receipt = new Date($("#'.Html::getInputId($model, 'receipt_date').'"). datepicker("getDate"));
         if(/\bsea\b/i.test($(this).val()) && !$("#'.Html::getInputId($model, 'estimate_arrive_date').'").data("manual")){
             receipt.setMonth(receipt.getMonth() + 1);
-            $("#'.Html::getInputId($model, 'estimate_arrive_date').'"). val( $.datepicker.formatDate("dd MM yy", receipt));
+            $("#'.Html::getInputId($model, 'estimate_arrive_date').'").val( $.datepicker.formatDate("dd MM yy", receipt));
         }else if(/\bair\b/i.test($(this).val()) && !$("#'.Html::getInputId($model, 'estimate_arrive_date').'").data("manual")){
             receipt.setDate(receipt.getDate() + 7);
-            $("#'.Html::getInputId($model, 'estimate_arrive_date').'"). val( $.datepicker.formatDate("dd MM yy", receipt));
+            $("#'.Html::getInputId($model, 'estimate_arrive_date').'").val( $.datepicker.formatDate("dd MM yy", receipt));
         }
 
     }
+});
+
+$("#'.Html::getInputId($model, 'estimate_arrive_date').'").keypress(function(){
+    if($(this).val())
+    $(this).data("manual",true);
+    else
+    $(this).data("manual",false);
 });
 
 ', \yii\web\View::POS_READY, 'estimate_arrive');
@@ -49,7 +56,8 @@ $("#'.Html::getInputId($model, 'marking_code').'").change(function(){
 //        'size' => 'lg',
         'clientOptions' => [
             'autoclose' => true,
-            'dateFormat' => 'dd MM yy'
+            'dateFormat' => 'dd MM yy',
+            'changeYear' => true,
         ]
     ]); ?>
 
@@ -104,7 +112,8 @@ $("#'.Html::getInputId($model, 'marking_code').'").change(function(){
 //        'size' => 'lg',
         'clientOptions' => [
             'autoclose' => true,
-            'dateFormat' => 'dd MM yy'
+            'dateFormat' => 'dd MM yy',
+            'changeYear' => true,
         ]]); ?>
 
 
@@ -117,7 +126,12 @@ $("#'.Html::getInputId($model, 'marking_code').'").change(function(){
 //        'size' => 'lg',
         'clientOptions' => [
             'autoclose' => true,
-            'dateFormat' => 'dd MM yy'
+            'dateFormat' => 'dd MM yy',
+            'changeYear' => true,
+            'onSelect' =>new \yii\web\JsExpression('
+                function (dateText, inst ) {
+                    $("#'.Html::getInputId($model, 'estimate_arrive_date').'").data("manual",true);
+            }'),
         ]]); ?>
 
 
