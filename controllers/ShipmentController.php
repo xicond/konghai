@@ -63,7 +63,7 @@ class ShipmentController extends Controller
         $searchModel = new ShipmentSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
-        if(Yii::$app->request->isAjax) {
+        if(Yii::$app->request->isAjax && Yii::$app->request->isGet()) {
             Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
             return $dataProvider->query->all();
         }
@@ -75,7 +75,7 @@ class ShipmentController extends Controller
     }
 
     /**
-     * Displays a single Shipment model.
+     * esplays a single Shipment model.
      * @param string $id
      * @return mixed
      */

@@ -42,7 +42,7 @@ use yii\widgets\ActiveForm;
                   return;
                 }
                 $.getJSON('".\yii\helpers\Url::to('shipment/index')."', {
-                    ShipmentSearch[marking_code]: request.term
+                    'ShipmentSearch[marking_code]': request.term
                 }, function( data, status, xhr ) {
                       for(k in data)
                         result[k] = data.marking_code;
