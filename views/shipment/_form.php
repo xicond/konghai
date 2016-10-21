@@ -27,6 +27,10 @@ $("#'.Html::getInputId($model, 'marking_code').'").change(function(){
     }
 });
 
+if($("#'.Html::getInputId($model, 'estimate_arrive_date').'").val()) {
+    $("#'.Html::getInputId($model, 'estimate_arrive_date').'").data("manual", true);
+}
+
 $("#'.Html::getInputId($model, 'estimate_arrive_date').'").keypress(function(){
     if($(this).val())
     $(this).data("manual",true);
