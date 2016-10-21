@@ -16,12 +16,12 @@ $("#'.Html::getInputId($model, 'marking_code').'").change(function(){
     if($(this).val() && $("#'.Html::getInputId($model, 'receipt_date').'").val()){
 
         var receipt = new Date($("#'.Html::getInputId($model, 'receipt_date').'"). datepicker("getDate"));
-        if(/\bsea\b/i.test($(this).val()) && $("#'.Html::getInputId($model, 'estimate_arrive_date').'").data("auto")){
+        if(/\bsea\b/i.test($(this).val()) && !$("#'.Html::getInputId($model, 'estimate_arrive_date').'").data("manual")){
             receipt.setMonth(receipt.getMonth() + 1);
-            $("#'.Html::getInputId($model, 'estimate_arrive_date').'").data("auto",true). val( $.datepicker.formatDate("dd MM yy", receipt));
-        }else if(/\bair\b/i.test($(this).val())){
+            $("#'.Html::getInputId($model, 'estimate_arrive_date').'"). val( $.datepicker.formatDate("dd MM yy", receipt));
+        }else if(/\bair\b/i.test($(this).val()) && !$("#'.Html::getInputId($model, 'estimate_arrive_date').'").data("manual")){
             receipt.setDate(receipt.getDate() + 7);
-            $("#'.Html::getInputId($model, 'estimate_arrive_date').'").data("auto",true). val( $.datepicker.formatDate("dd MM yy", receipt));
+            $("#'.Html::getInputId($model, 'estimate_arrive_date').'"). val( $.datepicker.formatDate("dd MM yy", receipt));
         }
 
     }
