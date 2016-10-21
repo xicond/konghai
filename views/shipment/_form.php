@@ -6,6 +6,29 @@ use yii\widgets\ActiveForm;
 /* @var $this yii\web\View */
 /* @var $model app\models\Shipment */
 /* @var $form yii\widgets\ActiveForm */
+
+if($model->isNewRecord)
+        $this->registerJs('
+var cache = {};
+
+
+$("#'.Html::getInputId($model, 'marking_code').'").change(function(){
+    if($(this).val() && $("#'.Html::getInputId($model, 'receipt_date').'").val()){
+
+        var receipt = new Date($("#'.Html::getInputId($model, 'receipt_date').'"). datepicker("getDate"));
+        if(/\bsea\b/i.test($(this).val())){
+            receipt.setMonth(receipt.getMonth() + 1);
+            $("#'.Html::getInputId($model, 'estimate_arrive_date').'"). val( $.datepicker.formatDate("dd MM yy", receipt));
+        }else if(/\bair\b/i.test($(this).val())){
+            receipt.setDate(receipt.getDate() + 7);
+            $("#'.Html::getInputId($model, 'estimate_arrive_date').'"). val( $.datepicker.formatDate("dd MM yy", receipt));
+        }
+
+    }
+});
+
+', \yii\web\View::POS_READY, 'estimate_arrive');
+
 ?>
 
 <div class="shipment-form">
@@ -111,27 +134,5 @@ use yii\widgets\ActiveForm;
 
     ?>
 
-    <?php
-    if($model->isNewRecord)
-    $this->registerJs('
-
-
-
-$("#'.Html::getInputId($model, 'marking_code').'").change(function(){
-    if($(this).val() && $("#'.Html::getInputId($model, 'receipt_date').'").val()){
-
-        var receipt = new Date($("#'.Html::getInputId($model, 'receipt_date').'"). datepicker("getDate"));
-        if(/\bsea\b/i.test($(this).val())){
-            receipt.setMonth(receipt.getMonth() + 1);
-            $("#'.Html::getInputId($model, 'estimate_arrive_date').'"). val( $.datepicker.formatDate("dd MM yy", receipt));
-        }else if(/\bair\b/i.test($(this).val())){
-            receipt.setDate(receipt.getDate() + 7);
-            $("#'.Html::getInputId($model, 'estimate_arrive_date').'"). val( $.datepicker.formatDate("dd MM yy", receipt));
-        }
-
-    }
-});
-
-', \yii\web\View::POS_READY, 'estimate_arrive');?>
 
 </div>
