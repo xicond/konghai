@@ -24,7 +24,7 @@ class TrackForm extends Model
         return [
             // code are required
             [['code'], 'required'],
-            [['code'], 'validateCode'],
+//            [['code'], 'validateCode'],
             [['reCaptcha'], \PetraBarus\Yii2\ReCaptcha\ReCaptchaValidator::className()]
         ];
     }

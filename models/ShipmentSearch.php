@@ -49,15 +49,15 @@ class ShipmentSearch extends Shipment
             'query' => $query,
         ]);
 
-        $this->load($params);
         $this->setScenario('search');
+        $this->load($params);
 
         if (!$this->validate()) {
             // uncomment the following line if you do not want to return any records when validation fails
             // $query->where('0=1');
-            return $dataProvider;
+//            die(json_encode($this->errors));
+            return null;
         }
-
         // grid filtering conditions
         $query->andFilterWhere([
             'id' => $this->id,
@@ -72,6 +72,8 @@ class ShipmentSearch extends Shipment
             ->andFilterWhere(['like', 'address_to', $this->address_to])
             ->andFilterWhere(['like', 'marking_code', $this->marking_code])
             ->andFilterWhere(['like', 'address_from', $this->address_from]);
+
+//            die(json_encode($query->sql));
 
         return $dataProvider;
     }

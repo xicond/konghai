@@ -7,6 +7,7 @@ use app\models\Shipment;
 use app\models\ShipmentCode;
 use app\models\ShipmentCodeSearch;
 use app\models\ShipmentQuery;
+use app\models\ShipmentSearch;
 use app\models\TrackForm;
 use Yii;
 use yii\filters\AccessControl;
@@ -80,14 +81,14 @@ class SiteController extends Controller
 
 //            $shipment = @ShipmentCodeSearch::findOne(array('code'=>Yii::$app->request->post('TrackForm')['code'], 'delete_time'=>null))->shipment;
 
-            $shipments = Shipment::find(array('marking_code'=>Yii::$app->request->post('TrackForm')['code']));
+            $shipments = (new ShipmentSearch)->search(array('ShipmentSearch'=>array('marking_code'=>Yii::$app->request->post('TrackForm')['code'])));
 
-            if(!$shipments->count())
-                $shipments = Shipment::find(array('resi'=>Yii::$app->request->post('TrackForm')['code']));
+            if($shipments && !$shipments->getCount())
+                $shipments = (new ShipmentSearch)->search(array('ShipmentSearch'=>array('resi'=>Yii::$app->request->post('TrackForm')['code'])));
 
-            if(!$shipments->count()) $shipment = false;
+            if(!$shipments || !$shipments->getCount()) $shipment = false;
             else{
-                $shipment = $shipments->orderBy(['update_time' => SORT_ASC])->one();
+                $shipment = $shipments->query->orderBy(['update_time' => SORT_ASC])->one();
             }
 
         }
