@@ -88,7 +88,7 @@ class SiteController extends Controller
 
             if(!$shipments || !$shipments->getCount()) $shipment = false;
             else{
-                $shipment = $shipments->query->orderBy(['update_time' => SORT_ASC])->one();
+                $shipment = $shipments->query->orderBy(['update_time' => SORT_DESC])->one();
             }
 
         }
