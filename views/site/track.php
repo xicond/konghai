@@ -38,7 +38,7 @@ $this->title = 'Track now';
 //                            'enableClientValidation' => false,
                         ]); ?>
 
-                        <?= $form->field($model, 'code')->textInput(['placeholder'=>'for demo type: AXN123']) ?>
+                        <?= $form->field($model, 'code')->textInput(['placeholder'=>'Input Marking Code here']) ?>
 
                         <?= $form->field($model, 'reCaptcha')->widget(\PetraBarus\Yii2\ReCaptcha\ReCaptcha::className()) ?>
 
